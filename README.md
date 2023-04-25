@@ -1,4 +1,7 @@
-![kfone-logo](/images/kfone-logo.png)
+<p align="center">
+  <img src="/images/kfone-logo.png">
+</p>
+
 **Kfone** is a hypothetical telecommunications enterprise use case that has a set of web-based sample applications, APIs, and system integrations.  It uses [**Asgardeo as a CIAM provider**](https://wso2.com/asgardeo/) along with [**Choreo, a cloud native app development platform**](https://wso2.com/choreo/) to showcase how Asgardeo and Choreo cater for B2C and B2B related CIAM use cases, that well integrates with business services and APIs for optimized business operations and to provide secure, frictionless, personalized experiences for consumers.
 
 This use case demonstration includes,
