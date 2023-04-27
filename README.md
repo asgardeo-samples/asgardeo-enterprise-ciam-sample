@@ -1,3 +1,5 @@
+# Asgardeo CIAM Use Case Sample
+
 <p align="center">
   <img src="/images/kfone-logo.png">
 </p>
@@ -14,4 +16,10 @@ This use case demonstration includes,
 - an enterprise customer service portal, where enterprise customers get access to upon an enterprise product/service subscription, where privileged users of the enterprise can handle subscriptions, view usage, and let cooperate consumers of their enterprise to view personal usage information of the subscribed services
 {admin view -image}
 {user view -image} 
-- a set of business APIs the above applications consume. With respect to the scope of this hypothetical use case, only API contracts, and service integrations are defined and managed, whereas business logic implementations just include static implementations just to showcase how various APIs can be integrated, orchestrated, exposed and managed for secure access from an app frontend.
+
+## CIAM Use Cases Covered
+
+Following use cases are covered from this sample.
+1. [B2C CIAM use case that handles account registration, login and account management for consumer facing digital applications](kfone-b2c-ciam-access-management-usecase.md)
+2. [B2C CIAM use case that handles customer journey time orchestration and builds a unified view of the consumer](kfone-b2c-ciam-integration-usecase.md) 
+3. [B2B CIAM use case that provides co-operate user management, access delegation facilities for enterprise customers in enterprise customer facing applications](kfone-b2b-ciam-usecase.md)
