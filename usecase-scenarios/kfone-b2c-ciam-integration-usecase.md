@@ -14,12 +14,12 @@ Below are a few such reference use cases.
 Kfone wants to provide a holistic view of their customers to help center agents, so they can troubleshoot and help their customers efficiently.
 {image of a customer portal view}
 
-## Solution Architecture using Asgardeo and Choreo:
+### Solution Architecture using Asgardeo and Choreo:
 Below is how Asgardeo and Choreo are being used to integrate business systems and APIs in order to achieve the use cases listed above.
 
 {solution diagram}
 
-## End user experience story:
+### End user experience story:
 
 
 - Receiving promotional emails:
