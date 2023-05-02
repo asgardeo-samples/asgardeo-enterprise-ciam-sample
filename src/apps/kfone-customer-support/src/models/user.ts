@@ -16,11 +16,32 @@
  * under the License.
  */
 
+/**
+ * Represents a user with their interaction statistics.
+ */
 export interface User {
+  /**
+   * The email of the user.
+   */
   email: string;
+  /**
+   * The number of visits the user made using their smartphone.
+   */
   smartphoneVisits: number;
+  /**
+   * The number of visits the user made using their IoT devices.
+   */
   iotDevicesVisits: number;
+  /**
+   * The number of visits the user made to mobile subscription related pages.
+   */
   mobileSubscriptionVisits: number;
+  /**
+   * The number of visits the user made to TV subscription related pages.
+   */
   tvSubscriptionVisits: number;
+  /**
+   * The interaction score of the user.
+   */
   interactionScore: number;
 }
