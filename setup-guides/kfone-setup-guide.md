@@ -165,7 +165,7 @@ REACT_APP_ASGARDEO_CALLBACK_URL=&lt;Authorized Redirect URL of the Customer Supp
 REACT_APP_CHOREO_CLIENT_ID=&lt;Client ID of the application registered in Choreo>
 REACT_APP_BASE_API_ENDPOINT=&lt;Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API>
 REACT_APP_CHOREO_ORGANIZATION=&lt;Your organization>
-REACT_APP_CHOREO_TOKEN_ENDPOINT=https&#x3A;//sts.choreo.dev/oauth2/token
+REACT_APP_STS_TOKEN_ENDPOINT=https&#x3A;//sts.choreo.dev/oauth2/token
 ```
 
 | **Variable**                                | **Description**                                                                        |   **Example**                                                     |
@@ -176,7 +176,7 @@ REACT_APP_CHOREO_TOKEN_ENDPOINT=https&#x3A;//sts.choreo.dev/oauth2/token
 | REACT_APP_CHOREO_CLIENT_ID      | Client ID of the application registered in Choreo                                          | &lt;uuid>                                              |
 | REACT_APP_BASE_API_ENDPOINT     | Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API | https&#x3A;//prod.e1-us-east-azure.choreoapis.dev/hvwp |
 | REACT_APP_CHOREO_ORGANIZATION   | The Asgardeo organization name                                                             | kfone                                                  |
-| REACT_APP_CHOREO_TOKEN_ENDPOINT | Token endpoint in Choreo                                                                   | https&#x3A;//sts.choreo.dev/oauth2/token               |
+| REACT_APP_STS_TOKEN_ENDPOINT | Token endpoint in Choreo                                                                   | https&#x3A;//sts.choreo.dev/oauth2/token               |
 
 
 

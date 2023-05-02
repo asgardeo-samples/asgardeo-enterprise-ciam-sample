@@ -37,7 +37,7 @@ const authConfig = {
     ],
     orgHandle: process.env.REACT_APP_CHOREO_ORGANIZATION,
   },
-  stsTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT,
+  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
   resourceServerURLs: process.env.REACT_APP_BASE_API_ENDPOINT,
 };
 

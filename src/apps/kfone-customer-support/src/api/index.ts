@@ -16,7 +16,6 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
+export * from './customer';
+export * from './marketing-campaign';
 export * from './user-interactions';

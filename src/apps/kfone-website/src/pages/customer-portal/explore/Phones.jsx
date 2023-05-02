@@ -98,8 +98,7 @@ export const Phones = () => {
       state.email,
       {
         smartPhoneVisits: mobileDeviceVisitsCounter.current
-      },
-      httpRequest
+      }
     );
   };
 

@@ -16,7 +16,4 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+export * from './app-config';

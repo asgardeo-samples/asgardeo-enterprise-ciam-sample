@@ -16,7 +16,7 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+export const appConfig = {
+  baseAPIEndpoint: process.env.REACT_APP_BASE_API_ENDPOINT,
+  __tempChoreoAuthToken: process.env.REACT_APP_CHOREO_AUTH_TOKEN,
+};

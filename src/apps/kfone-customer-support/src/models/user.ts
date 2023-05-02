@@ -16,7 +16,11 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+export interface User {
+  email: string;
+  smartphoneVisits: number;
+  iotDevicesVisits: number;
+  mobileSubscriptionVisits: number;
+  tvSubscriptionVisits: number;
+  interactionScore: number;
+}

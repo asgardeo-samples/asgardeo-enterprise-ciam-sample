@@ -31,8 +31,7 @@ export const TVPlans = () => {
       state.email,
       {
         tvSubscriptionVisits: tvSubscriptionVisitsCounter.current
-      },
-      httpRequest
+      }
     );
   };
 

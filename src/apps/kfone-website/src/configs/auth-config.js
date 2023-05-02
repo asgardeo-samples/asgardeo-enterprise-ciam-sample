@@ -16,7 +16,6 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+export const authConfig = {
+  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
+};

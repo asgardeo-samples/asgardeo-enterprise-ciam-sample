@@ -16,7 +16,17 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+/**
+ * Represents the authentication configuration of the application.
+ */
+export interface AuthConfig {
+  /**
+   * The endpoint URL of the Security Token Service (STS).
+   * If `undefined`, the application will use the default STS endpoint.
+   */
+  stsTokenEndpoint: string | undefined;
+}
+
+export const authConfig = {
+  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
+};
