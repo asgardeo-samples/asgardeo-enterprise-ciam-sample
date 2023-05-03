@@ -83,7 +83,7 @@ const MyPlan = () => {
       return;
     }
 
-    getUsageData(decodedIDTokenPayload?.userid || decodedIDTokenPayload?.sub, httpRequest)
+    getUsageData(decodedIDTokenPayload?.userid || decodedIDTokenPayload?.sub)
       .then((data) => {
         setCurrentPlan(data?.data?.subscription);
         setUsage(data?.data?.usage?.reverse());
@@ -120,8 +120,7 @@ const MyPlan = () => {
       });
 
     getPackageRecommendation(
-      decodedIDTokenPayload?.userid || decodedIDTokenPayload?.sub,
-      httpRequest
+      decodedIDTokenPayload?.userid || decodedIDTokenPayload?.sub
     )
       .then((data) => {
         setRecommendation(data.recommendation);

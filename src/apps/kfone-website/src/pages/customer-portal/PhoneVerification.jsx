@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,19 +16,19 @@
  * under the License.
  */
 
-import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useHistory, useLocation} from 'react-router-dom';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
-import { useAuthContext } from '@asgardeo/auth-react';
+import {useAuthContext} from '@asgardeo/auth-react';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
-import { initiatePhoneVerify, verifyPhone } from '../../api';
+import {initiatePhoneVerify, verifyPhone} from '../../api';
 import AuthTemplate from '../../templates/AuthTemplate';
 
 const PhoneVerification = () => {
   const history = useHistory();
   const location = useLocation();
-  const { httpRequest } = useAuthContext();
+  const {httpRequest} = useAuthContext();
 
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -60,13 +60,13 @@ const PhoneVerification = () => {
 
   const addNumber = async () => {
     setLoading(true);
-    const res = await initiatePhoneVerify(email, phone, httpRequest);
+    const res = await initiatePhoneVerify(email, phone);
     sessionStorage.setItem('otp', res.otp);
     setPhase('OTP_INPUT');
     setLoading(false);
   };
 
-  const validateUserInput = (code) => {
+  const validateUserInput = code => {
     if (typeof code !== 'string') {
       return false;
     }
@@ -92,21 +92,21 @@ const PhoneVerification = () => {
         // TODO: handle error
         setLoading(false);
       } else {
-        verifyPhone(email, phone, httpRequest)
-          .then((res) => {
+        verifyPhone(email, phone)
+          .then(res => {
             console.log(res);
             setLoading(false);
             sessionStorage.setItem('verified', true);
             history.push('/my-kfone');
           })
-          .catch((error) => {
+          .catch(error => {
             console.error(error);
           });
       }
     }, 1000);
   };
 
-  const resolveContent = (phase) => {
+  const resolveContent = phase => {
     if (phase === 'PHONE_INPUT') {
       return {
         title: 'Add Your Mobile',
@@ -114,31 +114,31 @@ const PhoneVerification = () => {
         error: '',
         button: 'Add number',
         loadingButton: 'Adding number...',
-        helperText: ''
+        helperText: '',
       };
     } else if (phase === 'OTP_INVALID') {
       return {
         title: 'Verify Your Mobile',
         label: `We sent a verification code to your phone ending with ${phone.substring(
           phone?.length - 4,
-          phone?.length
+          phone?.length,
         )}`,
         error: 'The OTP enetered is invalid!',
         button: 'Verify',
         loadingButton: 'Verifying...',
-        helperText: 'Not received the code yet?'
+        helperText: 'Not received the code yet?',
       };
     } else {
       return {
         title: 'Verify Your Mobile',
         label: `We sent a verification code to your phone ending with ${phone.substring(
           phone?.length - 4,
-          phone?.length
+          phone?.length,
         )}`,
         error: '',
         button: 'Verify',
         loadingButton: 'Verifying...',
-        helperText: 'Not received the code yet?'
+        helperText: 'Not received the code yet?',
       };
     }
   };
@@ -151,7 +151,7 @@ const PhoneVerification = () => {
           <label className="mb-1 text-sm" htmlFor="otp">
             {content.label}
           </label>
-          <label className="mb-1 text-sm" htmlFor="otp" style={{ color: 'red' }}>
+          <label className="mb-1 text-sm" htmlFor="otp" style={{color: 'red'}}>
             {content.error}
           </label>
           {phase === 'PHONE_INPUT' ? (
@@ -164,7 +164,7 @@ const PhoneVerification = () => {
               id="otp"
               placeholder="xxxxxx"
               value={otp}
-              onChange={(e) => setOtp(e.target.value)}
+              onChange={e => setOtp(e.target.value)}
               autoFocus
             />
           )}
@@ -180,9 +180,7 @@ const PhoneVerification = () => {
         <p className="text-sm mt-2">
           {content.helperText}
           {phase === 'OTP_INPUT' ? (
-            <a
-              className="cursor-pointer hover:underline text-secondary-500 hover:text-primary-400"
-              onClick={addNumber}>
+            <a className="cursor-pointer hover:underline text-secondary-500 hover:text-primary-400" onClick={addNumber}>
               &nbsp;Request again
             </a>
           ) : null}

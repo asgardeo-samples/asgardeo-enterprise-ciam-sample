@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,45 +16,38 @@
  * under the License.
  */
 
-import { useAuthContext } from "@asgardeo/auth-react";
-import { useState } from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import Layout from "../../components/Layout";
-import Loader from "../../components/Loader";
-import Button from "../../components/Button";
+import {useAuthContext} from '@asgardeo/auth-react';
+import {useState} from 'react';
+import {IoIosArrowForward} from 'react-icons/io';
+import Layout from '../../components/Layout';
+import Loader from '../../components/Loader';
+import Button from '../../components/Button';
+import {getUserInteractionsByCategory, sendMarketingMail} from '../../api';
+import {User} from '../../models';
 
 type Category = {
   id: string;
   name: string;
 };
 
-type User = {
-  email: string;
-  smartphoneVisits: number;
-  iotDevicesVisits: number;
-  mobileSubscriptionVisits: number;
-  tvSubscriptionVisits: number;
-  interactionScore: number;
-};
-
 const marketingTableHeaderTitles: string[] = [
-  "Email",
-  "Smartphone Visits",
-  "IOT Devices Visits",
-  "Mobile Subscription Visits",
-  "TV Subscription Visits",
-  "Interaction Score",
+  'Email',
+  'Smartphone Visits',
+  'IOT Devices Visits',
+  'Mobile Subscription Visits',
+  'TV Subscription Visits',
+  'Interaction Score',
 ];
 
 const categories: Category[] = [
-  { id: "smartphone_visits", name: "Smartphone Visits" },
-  { id: "iot_devices_visits", name: "IOT Device Visits" },
-  { id: "mobile_subscription_visits", name: "Mobile Subscription Visits" },
-  { id: "tv_subscription_visits", name: "TV subscription Visits" },
+  {id: 'smartphone_visits', name: 'Smartphone Visits'},
+  {id: 'iot_devices_visits', name: 'IOT Device Visits'},
+  {id: 'mobile_subscription_visits', name: 'Mobile Subscription Visits'},
+  {id: 'tv_subscription_visits', name: 'TV subscription Visits'},
 ];
 
 const Marketing = () => {
-  const { state, httpRequest } = useAuthContext();
+  const {state} = useAuthContext();
   const [userInfo, setUserInfo] = useState<User[]>();
   const [isUserInfoLoading, setIsUserInfoLoading] = useState<boolean>(false);
   const [isUserInfoError, setIsUserInfoError] = useState<boolean>();
@@ -68,11 +61,9 @@ const Marketing = () => {
     try {
       setIsUserInfoLoading(true);
       setIsUserInfoError(false);
-      const res = await httpRequest({
-        url: `${process.env.REACT_APP_BASE_API_ENDPOINT}/user-interactions-api/1.0.0/interactionsByCategory?category=${selectedCategory?.id}`,
-      });
-      setUserInfo(res?.data);
-      setCheckedState(new Array(res?.data?.length).fill(true));
+      const userInteractions = await getUserInteractionsByCategory(selectedCategory?.id as string);
+      setUserInfo(userInteractions);
+      setCheckedState(new Array(userInteractions?.length).fill(true));
       setIsUserInfoLoading(false);
       setIsAllUsersChecked(true);
     } catch (error: any) {
@@ -95,30 +86,19 @@ const Marketing = () => {
       }
     });
 
-    // Send marketing email
-    const audienceEmails = audience.map(
-      (user) => `emails=${encodeURIComponent(user.email)}`
-    );
-    const emailsQueryString = audienceEmails.join("&");
-
-    await httpRequest({
-      url: `${process.env.REACT_APP_BASE_API_ENDPOINT}/marketing-campaign-api/1.0.0/sendMarketingMail?${emailsQueryString}`,
-      method: "POST",
-    });
+    await sendMarketingMail(audience);
 
     setIsSentEmail(true);
     setTimeout(() => setIsSentEmail(false), 3000);
   };
 
   const handleOnChange = (position: number) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
+    const updatedCheckedState = checkedState.map((item, index) => (index === position ? !item : item));
 
     setCheckedState(updatedCheckedState);
 
     let checkedCounter = 0;
-    updatedCheckedState.map((checkBoxValue) => {
+    updatedCheckedState.map(checkBoxValue => {
       if (checkBoxValue === true) {
         checkedCounter += 1;
       }
@@ -141,11 +121,9 @@ const Marketing = () => {
                     id="menu-button"
                     aria-expanded="true"
                     aria-haspopup="true"
-                    onClick={() =>
-                      setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
-                    }
+                    onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
                   >
-                    {selectedCategory?.name ?? "Select the interested area"}
+                    {selectedCategory?.name ?? 'Select the interested area'}
                     <svg
                       className="-mr-1 ml-2 h-5 w-5"
                       xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +147,7 @@ const Marketing = () => {
                       aria-labelledby="menu-button"
                     >
                       <div className="py-1" role="none">
-                        {categories.map((category) => (
+                        {categories.map(category => (
                           <span
                             key={category.id}
                             className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
@@ -186,11 +164,7 @@ const Marketing = () => {
                   )}
                 </div>
 
-                <Button
-                  classNames="right-2.5 bottom-2.5"
-                  isDisabled={false}
-                  onButtonClick={retrieveInteractions}
-                >
+                <Button classNames="right-2.5 bottom-2.5" isDisabled={false} onButtonClick={retrieveInteractions}>
                   {isUserInfoLoading && (
                     <svg
                       role="status"
@@ -213,10 +187,7 @@ const Marketing = () => {
                 </Button>
               </div>
 
-              <Button
-                isDisabled={isUserInfoLoading || isUserInfoError || !userInfo}
-                onButtonClick={sendEmail}
-              >
+              <Button isDisabled={isUserInfoLoading || isUserInfoError || !userInfo} onButtonClick={sendEmail}>
                 Send Email <IoIosArrowForward size={20} />
               </Button>
             </div>
@@ -230,8 +201,8 @@ const Marketing = () => {
 
           {isSentEmail && (
             <div
-              className="absolute right-5 bottom-10 flex items-center p-4 space-x-4 w-full max-w-xs text-gray-500 bg-white 
-            rounded-lg divide-x divide-gray-500 shadow-lg 
+              className="absolute right-5 bottom-10 flex items-center p-4 space-x-4 w-full max-w-xs text-gray-500 bg-white
+            rounded-lg divide-x divide-gray-500 shadow-lg
             space-x"
               role="alert"
             >
@@ -250,9 +221,7 @@ const Marketing = () => {
                   d="M511.6 36.86l-64 415.1c-1.5 9.734-7.375 18.22-15.97 23.05c-4.844 2.719-10.27 4.097-15.68 4.097c-4.188 0-8.319-.8154-12.29-2.472l-122.6-51.1l-50.86 76.29C226.3 508.5 219.8 512 212.8 512C201.3 512 192 502.7 192 491.2v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96l-293.7 264.3L19.69 317.5C8.438 312.8 .8125 302.2 .0625 289.1s5.469-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"
                 ></path>
               </svg>
-              <div className="pl-4 text-sm font-normal">
-                Emails sent successfully.
-              </div>
+              <div className="pl-4 text-sm font-normal">Emails sent successfully.</div>
             </div>
           )}
 
@@ -299,17 +268,13 @@ const Marketing = () => {
                                   onChange={() => {
                                     setIsAllUsersChecked(!isAllUsersChecked);
 
-                                    setCheckedState(
-                                      new Array(userInfo.length).fill(
-                                        !isAllUsersChecked
-                                      )
-                                    );
+                                    setCheckedState(new Array(userInfo.length).fill(!isAllUsersChecked));
                                   }}
                                 />
                                 <label className="sr-only">checkbox</label>
                               </div>
                             </th>
-                            {marketingTableHeaderTitles.map((headerTitle) => (
+                            {marketingTableHeaderTitles.map(headerTitle => (
                               <th
                                 scope="col"
                                 className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase"

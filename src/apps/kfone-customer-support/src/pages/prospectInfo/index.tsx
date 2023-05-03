@@ -49,9 +49,10 @@ import {
 import Layout from "../../components/Layout";
 import Loader from "../../components/Loader";
 import { Prospect360Response } from "./types";
+import { getCustomer360View } from "../../api/prospect";
 
 const ProspectInfo = () => {
-    const { state, httpRequest } = useAuthContext();
+    const { state } = useAuthContext();
     const [userInfo, setUserInfo] = useState<Prospect360Response>();
     const [isUserInfoLoading, setIsUserInfoLoading] = useState<boolean>(false);
     const [isUserInfoError, setIsUserInfoError] = useState<boolean>();
@@ -185,10 +186,8 @@ const ProspectInfo = () => {
         try {
             setIsUserInfoLoading(true);
             setIsUserInfoError(false);
-            const res = await httpRequest({
-                url: `${process.env.REACT_APP_BASE_API_ENDPOINT}/prospect-360-api/1.0.0/customer-360view?email=${email}`
-            });
-            setUserInfo(res?.data);
+            const customer360View = await getCustomer360View(email);
+            setUserInfo(customer360View);
             setIsUserInfoLoading(false);
         } catch (error: any) {
             setIsUserInfoLoading(false);

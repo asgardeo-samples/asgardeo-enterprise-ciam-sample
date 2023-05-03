@@ -32,8 +32,7 @@ export const MobilePlans = () => {
       state.email,
       {
         mobileSubscriptionVisits: mobileSubscriptionVisitsCounter.current
-      },
-      httpRequest
+      }
     );
   };
 

@@ -66,8 +66,7 @@ export const IOTDevices = () => {
       state.email,
       {
         iotDevicesVisits: iotDeviceVisitsCounter.current
-      },
-      httpRequest
+      }
     );
   };
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -25,6 +25,7 @@ import { FcCancel, FcOk } from "react-icons/fc";
 import Layout from "../../components/Layout";
 import Loader from "../../components/Loader";
 import { PastBillingCycle, UserInfo } from "./types";
+import { getCustomerInfo } from "../../api";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -35,7 +36,7 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const CustomerInfo = () => {
-  const { state, signIn, getDecodedIDPIDToken, httpRequest } = useAuthContext();
+  const { state, signIn, getDecodedIDPIDToken } = useAuthContext();
   const query = new URLSearchParams(useLocation().search);
   const [userInfo, setUserInfo] = useState<UserInfo>();
   const [isUserInfoLoading, setIsUserInfoLoading] = useState<boolean>(false);
@@ -98,11 +99,9 @@ const CustomerInfo = () => {
     try {
       setIsUserInfoLoading(true);
       setIsUserInfoError(false);
-      const res = await httpRequest({
-        url: `${process.env.REACT_APP_BASE_API_ENDPOINT}/kfone-customer-360/1.0.0/customer?mobile=${mobileNumber}`,
-      });
-      setUserInfo(res?.data);
-      setBillingHistory(res?.data?.billingData?.pastBillingCycles?.reverse());
+      const customerInfo = await getCustomerInfo(mobileNumber as string);
+      setUserInfo(customerInfo);
+      setBillingHistory(customerInfo?.billingData?.pastBillingCycles?.reverse());
       setIsUserInfoLoading(false);
     } catch (error) {
       setIsUserInfoLoading(false);

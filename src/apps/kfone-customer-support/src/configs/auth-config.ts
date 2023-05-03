@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,7 +16,17 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+/**
+ * Represents the authentication configuration of the application.
+ */
+export interface AuthConfig {
+  /**
+   * The endpoint URL of the Security Token Service (STS).
+   * If `undefined`, the application will use the default STS endpoint.
+   */
+  stsTokenEndpoint: string | undefined;
+}
+
+export const authConfig = {
+  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
+};

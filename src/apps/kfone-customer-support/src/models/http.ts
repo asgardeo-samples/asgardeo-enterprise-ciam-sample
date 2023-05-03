@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,7 +16,28 @@
  * under the License.
  */
 
-export * from './account-verification';
-export * from './auth';
-export * from './usage-data';
-export * from './user-interactions';
+/**
+ * An enumeration of HTTP methods supported by the application.
+ */
+export enum HttpMethod {
+  /**
+   * HTTP GET method.
+   */
+  GET = 'GET',
+  /**
+   * HTTP POST method.
+   */
+  POST = 'POST',
+  /**
+   * HTTP PUT method.
+   */
+  PUT = 'PUT',
+  /**
+   * HTTP DELETE method.
+   */
+  DELETE = 'DELETE',
+  /**
+   * HTTP PATCH method.
+   */
+  PATCH = 'PATCH',
+}
