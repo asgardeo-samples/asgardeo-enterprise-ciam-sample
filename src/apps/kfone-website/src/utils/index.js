@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,40 +16,6 @@
  * under the License.
  */
 
-export const getMonthString = (value) => {
-  const MONTHS = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ];
-
-  return MONTHS[Number(value) - 1];
-};
-
-export function downloadURL(url, fileName) {
-  const link = document.createElement('a');
-
-  document.body.appendChild(link);
-  link.href = url;
-  link.setAttribute('download', fileName);
-  link.click();
-  document.body.removeChild(link);
-}
-
-export const validateEmail = (email) => {
-  // eslint-disable-next-line no-useless-escape
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+export * from './date-time-utils';
+export * from './dom-utils';
+export * from './validation-utils';

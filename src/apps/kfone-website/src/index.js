@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -19,7 +19,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {App} from './app';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);

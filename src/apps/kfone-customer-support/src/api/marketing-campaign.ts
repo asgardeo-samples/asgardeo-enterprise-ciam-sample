@@ -32,7 +32,7 @@ const httpRequest = AsgardeoSPAClient!.getInstance()!.httpRequest.bind(AsgardeoS
  *
  * @param category - The category of user interactions to retrieve.
  * @returns A Promise that resolves to the retrieved user interactions.
- * @throws If no user interactions are found for the specified category, or if an error occurs while retrieving the interactions.
+ * @throws If an error occurs while retrieving the interactions.
  */
 export const sendMarketingMail = async (audience: User[]) => {
   const audienceEmails: string[] = audience.map(user => `emails=${encodeURIComponent(user.email)}`);

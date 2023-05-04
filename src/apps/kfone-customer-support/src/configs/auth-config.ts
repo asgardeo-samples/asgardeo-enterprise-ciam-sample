@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,17 +16,38 @@
  * under the License.
  */
 
-/**
- * Represents the authentication configuration of the application.
- */
-export interface AuthConfig {
-  /**
-   * The endpoint URL of the Security Token Service (STS).
-   * If `undefined`, the application will use the default STS endpoint.
-   */
-  stsTokenEndpoint: string | undefined;
-}
+import {AuthReactConfig} from '@asgardeo/auth-react';
+import {STSClientConfig} from '@asgardeo/token-exchange-plugin';
 
-export const authConfig = {
+/**
+ * Represents the configuration options for authentication and token exchange.
+ */
+export type AuthConfig = AuthReactConfig & STSClientConfig;
+
+/**
+ * The default authentication and token exchange configuration object.
+ */
+export const authConfig: AuthConfig = {
+  signInRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
+  signOutRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
+  clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID ?? '',
+  baseUrl: process.env.REACT_APP_ASGARDEO_BASE_URL ?? '',
+  scope: ['openid', 'profile'],
+  disableTrySignInSilently: false,
+  stsConfig: {
+    client_id: process.env.REACT_APP_CHOREO_CLIENT_ID as string,
+    scope: [
+      'apim:api_manage',
+      'apim:subscription_manage',
+      'apim:tier_manage',
+      'apim:admin',
+      'apim:publisher_settings',
+      'environments:view_prod',
+      'environments:view_dev',
+      'apim:api_generate_key',
+    ],
+    orgHandle: process.env.REACT_APP_CHOREO_ORGANIZATION,
+  },
   stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
+  resourceServerURLs: [process.env.REACT_APP_BASE_API_ENDPOINT as string],
 };

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -17,11 +17,16 @@
  */
 
 import React from 'react';
+import clsx from 'clsx';
 
-const Spinner = () => {
-  return (
-    <div className="w-6 h-6 border-4 border-dashed rounded-full animate-spin border-primary"></div>
-  );
+/**
+ * Spinner component.
+ *
+ * @param props - Props injected to the component.
+ * @returns Spinner component.
+ */
+export const Spinner = ({className, ...rest}) => {
+  const classes = clsx('w-6 h-6 border-4 border-dashed rounded-full animate-spin border-primary', className);
+
+  return <div className={classes} {...rest} />;
 };
-
-export default Spinner;

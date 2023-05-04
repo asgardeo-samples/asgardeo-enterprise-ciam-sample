@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,38 +16,33 @@
  * under the License.
  */
 
-import { RouteObject } from "react-router-dom";
-import Dashboard from "../pages/dashboard";
-import CustomerInfo from "../pages/customerInfo";
-import Cases from "../pages/cases";
-import Marketing from "../pages/marketing";
-import Error from "../pages/error";
-import ProspectInfo from "../pages/prospectInfo";
+import {RouteObject} from 'react-router-dom';
+import {CasesPage, CustomersPage, ErrorPage, HomePage, MarketingPage, ProspectsPage} from '../pages';
 
 export const config: RouteObject[] = [
   {
-    path: "/",
-    element: <Dashboard />,
-    errorElement: <Error />
+    path: '/',
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/cases",
-    element: <Cases />,
+    path: '/cases',
+    element: <CasesPage />,
   },
   {
-    path: "/customers",
-    element: <CustomerInfo />,
+    path: '/customers',
+    element: <CustomersPage />,
   },
   {
-    path: "/marketing",
-    element: <Marketing />,
+    path: '/marketing',
+    element: <MarketingPage />,
   },
   {
-    path: "/prospects",
-    element: <ProspectInfo />,
+    path: '/prospects',
+    element: <ProspectsPage />,
   },
   {
-    path: "*",
-    element: <Error />,
-  }
+    path: '*',
+    element: <ErrorPage />,
+  },
 ];

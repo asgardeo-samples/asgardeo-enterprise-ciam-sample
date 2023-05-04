@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -17,22 +17,16 @@
  */
 
 import React from 'react';
-import { AuthProvider } from '@asgardeo/auth-react';
-import { TokenExchangePlugin } from '@asgardeo/token-exchange-plugin';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {AuthProvider} from '@asgardeo/auth-react';
+import {TokenExchangePlugin} from '@asgardeo/token-exchange-plugin';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import appConfig from './config';
-import HomePage from './pages/HomePage';
-import PhoneVerification from './pages/customer-portal/PhoneVerification';
-import NotFoundErrorPage from './pages/404';
-import MyPlan from './pages/customer-portal/MyPlan';
-import Discover from './pages/customer-portal/explore/Explore';
-import { SecureRouteWithRedirect } from './components';
-import BusinessPage from './pages/BusinessPage';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import Webinar from './pages/webinar';
-import { MdErrorOutline } from 'react-icons/md';
+import {BusinessPage, HomePage, NotFoundErrorPage, PrivacyPolicyPage, WebinarRegistrationPage} from './pages';
+import {SecureRouteWithRedirect} from './components';
+import {MdErrorOutline} from 'react-icons/md';
+import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages/customer-portal';
 
-const App = () => {
+export const App = () => {
   if (
     !(
       appConfig.baseUrl &&
@@ -48,15 +42,15 @@ const App = () => {
         <p className="w-[400px] flex flex-col items-center">
           <MdErrorOutline color="red" size={36} />
           <span className="text-lg my-4 text-center">
-            One or more values are missing from <code>.env</code> file. Please check and restart the
-            app.
+            One or more values are missing from <code>.env</code> file. Please check and restart the app.
           </span>
           <br />
           <a
             href="https://github.com/wso2/devrel/blob/Kubecon-demos/kfone-website/README.md#lets-setup-the-environment-variables"
             target="_blank"
             rel="noreferrer"
-            className="text-blue-800 underline text-sm">
+            className="text-blue-800 underline text-sm"
+          >
             Learn more
           </a>
         </p>
@@ -65,23 +59,19 @@ const App = () => {
   }
 
   return (
-    <AuthProvider
-      config={{ ...appConfig, storage: Storage.WebWorker }}
-      plugin={TokenExchangePlugin.getInstance()}>
+    <AuthProvider config={{...appConfig, storage: Storage.WebWorker}} plugin={TokenExchangePlugin.getInstance()}>
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/enterprise" component={BusinessPage} />
-          <Route exact path="/enterprise/webinar" component={Webinar} />
-          <SecureRouteWithRedirect exact path="/my-kfone" component={MyPlan} />
-          <SecureRouteWithRedirect exact path="/my-kfone/explore" component={Discover} />
-          <SecureRouteWithRedirect exact path="/my-kfone/verify" component={PhoneVerification} />
-          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+          <Route exact path="/enterprise/webinar" component={WebinarRegistrationPage} />
+          <SecureRouteWithRedirect exact path="/my-kfone" component={MyPlanPage} />
+          <SecureRouteWithRedirect exact path="/my-kfone/explore" component={ExplorePage} />
+          <SecureRouteWithRedirect exact path="/my-kfone/verify" component={PhoneVerificationPage} />
+          <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="*" component={NotFoundErrorPage} />
         </Switch>
       </Router>
     </AuthProvider>
   );
 };
-
-export default App;

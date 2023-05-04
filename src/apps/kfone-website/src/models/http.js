@@ -16,10 +16,28 @@
  * under the License.
  */
 
+/**
+ * An object of HTTP methods supported by the application.
+ */
 export const HttpMethod = Object.freeze({
+  /**
+   * HTTP GET method.
+   */
   GET: 'GET',
+  /**
+   * HTTP POST method.
+   */
   POST: 'POST',
+  /**
+   * HTTP PUT method.
+   */
   PUT: 'PUT',
+  /**
+   * HTTP DELETE method.
+   */
   DELETE: 'DELETE',
+  /**
+   * HTTP PATCH method.
+   */
   PATCH: 'PATCH',
 });
