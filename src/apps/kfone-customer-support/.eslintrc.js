@@ -79,5 +79,6 @@ module.exports = {
   rules: {
     'header/header': ['warn', 'block', getLicenseHeaderPattern()],
     'prettier/prettier': 'warn',
+    'max-len': ['warn', {code: 120}],
   },
 };

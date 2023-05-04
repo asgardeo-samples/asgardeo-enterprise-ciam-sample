@@ -18,7 +18,7 @@
 
 import {AsgardeoSPAClient} from '@asgardeo/auth-react';
 import {appConfig} from '../configs';
-import {HttpMethod, User} from '../models';
+import {HttpMethod} from '../models';
 
 /**
  * This is a wrapper function for the AsgardeoSPAClient's httpRequest function.

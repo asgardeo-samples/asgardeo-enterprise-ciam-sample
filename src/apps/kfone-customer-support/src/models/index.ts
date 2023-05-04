@@ -16,5 +16,7 @@
  * under the License.
  */
 
+export * from './billing';
 export * from './http';
+export * from './prospect';
 export * from './user';
