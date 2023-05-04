@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,8 +16,16 @@
  * under the License.
  */
 
-export const appConfig = {
-  baseAPIEndpoint: process.env.REACT_APP_BASE_API_ENDPOINT,
-  myaccountURL: process.env.REACT_APP_MY_ACCOUNT_URL ?? '',
-  __tempChoreoAuthToken: process.env.REACT_APP_CHOREO_AUTH_TOKEN,
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
 };
+
+export default reportWebVitals;

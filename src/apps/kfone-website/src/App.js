@@ -17,61 +17,24 @@
  */
 
 import React from 'react';
-import {AuthProvider} from '@asgardeo/auth-react';
-import {TokenExchangePlugin} from '@asgardeo/token-exchange-plugin';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import appConfig from './config';
 import {BusinessPage, HomePage, NotFoundErrorPage, PrivacyPolicyPage, WebinarRegistrationPage} from './pages';
 import {SecureRouteWithRedirect} from './components';
-import {MdErrorOutline} from 'react-icons/md';
 import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages/customer-portal';
 
 export const App = () => {
-  if (
-    !(
-      appConfig.baseUrl &&
-      appConfig.clientID &&
-      appConfig.myaccountURL &&
-      appConfig.resourceServerURLs &&
-      appConfig.stsConfig.client_id &&
-      appConfig.stsConfig.orgHandle
-    )
-  ) {
-    return (
-      <div className="w-screen h-screen flex justify-center items-center">
-        <p className="w-[400px] flex flex-col items-center">
-          <MdErrorOutline color="red" size={36} />
-          <span className="text-lg my-4 text-center">
-            One or more values are missing from <code>.env</code> file. Please check and restart the app.
-          </span>
-          <br />
-          <a
-            href="https://github.com/wso2/devrel/blob/Kubecon-demos/kfone-website/README.md#lets-setup-the-environment-variables"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-800 underline text-sm"
-          >
-            Learn more
-          </a>
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <AuthProvider config={{...appConfig, storage: Storage.WebWorker}} plugin={TokenExchangePlugin.getInstance()}>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/enterprise" component={BusinessPage} />
-          <Route exact path="/enterprise/webinar" component={WebinarRegistrationPage} />
-          <SecureRouteWithRedirect exact path="/my-kfone" component={MyPlanPage} />
-          <SecureRouteWithRedirect exact path="/my-kfone/explore" component={ExplorePage} />
-          <SecureRouteWithRedirect exact path="/my-kfone/verify" component={PhoneVerificationPage} />
-          <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
-          <Route path="*" component={NotFoundErrorPage} />
-        </Switch>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/enterprise" component={BusinessPage} />
+        <Route exact path="/enterprise/webinar" component={WebinarRegistrationPage} />
+        <SecureRouteWithRedirect exact path="/my-kfone" component={MyPlanPage} />
+        <SecureRouteWithRedirect exact path="/my-kfone/explore" component={ExplorePage} />
+        <SecureRouteWithRedirect exact path="/my-kfone/verify" component={PhoneVerificationPage} />
+        <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
+        <Route path="*" component={NotFoundErrorPage} />
+      </Switch>
+    </Router>
   );
 };

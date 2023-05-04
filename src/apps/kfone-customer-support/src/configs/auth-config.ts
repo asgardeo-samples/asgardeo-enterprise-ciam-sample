@@ -28,14 +28,15 @@ export type AuthConfig = AuthReactConfig & STSClientConfig;
  * The default authentication and token exchange configuration object.
  */
 export const authConfig: AuthConfig = {
+  baseUrl: process.env.REACT_APP_ASGARDEO_BASE_URL ?? '',
+  clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID ?? '',
   signInRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
   signOutRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
-  clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID ?? '',
-  baseUrl: process.env.REACT_APP_ASGARDEO_BASE_URL ?? '',
   scope: ['openid', 'profile'],
   disableTrySignInSilently: false,
   stsConfig: {
     client_id: process.env.REACT_APP_CHOREO_CLIENT_ID as string,
+    orgHandle: process.env.REACT_APP_CHOREO_ORGANIZATION,
     scope: [
       'apim:api_manage',
       'apim:subscription_manage',
@@ -46,7 +47,6 @@ export const authConfig: AuthConfig = {
       'environments:view_dev',
       'apim:api_generate_key',
     ],
-    orgHandle: process.env.REACT_APP_CHOREO_ORGANIZATION,
   },
   stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
   resourceServerURLs: [process.env.REACT_APP_BASE_API_ENDPOINT as string],

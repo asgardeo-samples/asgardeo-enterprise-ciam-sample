@@ -30,7 +30,7 @@ import {
 } from 'react-icons/ai';
 import {FiExternalLink} from 'react-icons/fi';
 import {Loading} from '../components';
-import appConfig from '../config';
+import {appConfig} from '../configs';
 import avatar from '../assets/images/people/user.png';
 import clsx from 'clsx';
 
