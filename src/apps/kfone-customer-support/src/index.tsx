@@ -57,7 +57,10 @@ export const Root: FC<RootProps> = (): ReactElement => {
           </span>
           <br />
           <a
-            href="https://github.com/wso2/devrel/blob/Kubecon-demos/kfone-customer-support/README.md#lets-setup-the-environment-variables"
+            href={
+              'https://github.com/wso2/devrel/blob/Kubecon-demos/kfone-customer-support/README.md' +
+              '#lets-setup-the-environment-variables'
+            }
             target="_blank"
             rel="noreferrer"
             className="text-blue-800 underline text-sm"

@@ -70,7 +70,8 @@ export type SideBarProps = DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HT
  */
 export const SideBar: FC<SideBarProps> = ({className}: SideBarProps): ReactElement => {
   const classes: string = clsx(
-    'w-[250px] fixed inset-y-0 antialiased transition-transform duration-200 -translate-x-full xl:translate-x-0 bg-white shadow-xl z-990',
+    'w-[250px] fixed inset-y-0 antialiased transition-transform duration-200',
+    '-translate-x-full xl:translate-x-0 bg-white shadow-xl z-990',
     className,
   );
 

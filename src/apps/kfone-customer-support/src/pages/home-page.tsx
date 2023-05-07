@@ -157,7 +157,12 @@ export const HomePage: FC<HomePageProps> = (): ReactElement => {
             <div className="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
               <div className="flex flex-col flex-wrap sm:flex-row ">
                 <div className="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">
-                  <div className="border-black/12.5 shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+                  <div
+                    className={
+                      'border-black/12.5 shadow-xl relative z-20 flex min-w-0 flex-col break-words ' +
+                      'rounded-2xl border-0 border-solid bg-white bg-clip-border'
+                    }
+                  >
                     <div className="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0">
                       <h6 className="capitalize font-bold mb-2">Customer Satisfaction overview</h6>
                       <p className="mb-0 text-sm leading-normal">

@@ -16,6 +16,8 @@
  * under the License.
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, {useEffect, useState} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
 import {useHistory} from 'react-router-dom';
@@ -35,7 +37,7 @@ const currency = new Intl.NumberFormat('en-US', {
 
 export const MyPlanPage = () => {
   const history = useHistory();
-  const {state, getBasicUserInfo, getIDToken, getDecodedIDToken, httpRequest} = useAuthContext();
+  const {state, getBasicUserInfo, getIDToken, getDecodedIDToken} = useAuthContext();
 
   const [loading, setLoading] = useState(true);
   const [currentPlan, setCurrentPlan] = useState();
