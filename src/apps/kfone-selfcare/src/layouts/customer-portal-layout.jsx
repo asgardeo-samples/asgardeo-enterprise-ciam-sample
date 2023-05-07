@@ -80,10 +80,10 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
             </div>
           </h1>
         </div>
-        <NavLinkBlock url="/my-kfone">
+        <NavLinkBlock url="/">
           <button
             onClick={() => {
-              history.push('/my-kfone');
+              history.push('/');
             }}
             className="flex w-full items-center"
           >
@@ -91,10 +91,10 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
             <h3 className="mr-1">My Plan</h3>
           </button>
         </NavLinkBlock>
-        <NavLinkBlock url="/my-kfone/explore">
+        <NavLinkBlock url="/explore">
           <button
             onClick={() => {
-              history.push('/my-kfone/explore');
+              history.push('/explore');
             }}
             className="flex w-full items-center"
           >
@@ -102,7 +102,7 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
             <h3 className="mr-1">Explore</h3>
           </button>
         </NavLinkBlock>
-        <NavLinkBlock url="/my-kfone/billing">
+        <NavLinkBlock url="/billing">
           <button onClick={() => {}} className="flex w-full items-center">
             <AiOutlineCreditCard size={28} className="mr-3" />
             <h3 className="mr-1">Billing</h3>

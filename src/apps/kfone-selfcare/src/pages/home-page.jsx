@@ -48,7 +48,7 @@ export const HomePage = () => {
 
   const handleLogin = () => {
     if (state?.isAuthenticated) {
-      history.push('/my-kfone');
+      history.push('/');
       return;
     }
 

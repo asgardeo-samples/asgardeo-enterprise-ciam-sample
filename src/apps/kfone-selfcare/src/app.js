@@ -18,20 +18,17 @@
 
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {BusinessPage, HomePage, NotFoundErrorPage, PrivacyPolicyPage, WebinarRegistrationPage} from './pages';
+import {NotFoundErrorPage, PrivacyPolicyPage} from './pages';
 import {SecureRouteWithRedirect} from './components';
 import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages/customer-portal';
 
 export const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/enterprise" component={BusinessPage} />
-        <Route exact path="/enterprise/webinar" component={WebinarRegistrationPage} />
-        <SecureRouteWithRedirect exact path="/my-kfone" component={MyPlanPage} />
-        <SecureRouteWithRedirect exact path="/my-kfone/explore" component={ExplorePage} />
-        <SecureRouteWithRedirect exact path="/my-kfone/verify" component={PhoneVerificationPage} />
+        <SecureRouteWithRedirect exact path="/" component={MyPlanPage} />
+        <SecureRouteWithRedirect exact path="/explore" component={ExplorePage} />
+        <SecureRouteWithRedirect exact path="/verify" component={PhoneVerificationPage} />
         <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
         <Route path="*" component={NotFoundErrorPage} />
       </Switch>

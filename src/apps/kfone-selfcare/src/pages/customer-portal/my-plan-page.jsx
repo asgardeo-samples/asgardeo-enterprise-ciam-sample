@@ -81,7 +81,7 @@ export const MyPlanPage = () => {
     }
 
     if (!sessionStorage.getItem('verified')) {
-      history.push('/my-kfone/verify', decodedIDTokenPayload);
+      history.push('/verify', decodedIDTokenPayload);
       return;
     }
 

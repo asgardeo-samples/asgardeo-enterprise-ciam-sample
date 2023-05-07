@@ -46,7 +46,7 @@ export const PhoneVerificationPage = () => {
     if (location.state) {
       const decodedIDToken = location.state;
       if (decodedIDToken?.mobileNumberVerified || sessionStorage.getItem('verified')) {
-        history.push('/my-kfone');
+        history.push('/');
       }
       setEmail(decodedIDToken?.email);
       setPhone(decodedIDToken?.phone_number);
@@ -97,7 +97,7 @@ export const PhoneVerificationPage = () => {
             console.log(res);
             setLoading(false);
             sessionStorage.setItem('verified', true);
-            history.push('/my-kfone');
+            history.push('/');
           })
           .catch(error => {
             console.error(error);
