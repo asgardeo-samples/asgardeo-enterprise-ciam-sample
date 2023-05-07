@@ -44,7 +44,7 @@ export const getCustomerInfo = async (mobile: string): Promise<any> => {
       mobile,
     },
     method: HttpMethod.GET,
-    url: `${appConfig.baseAPIEndpoint}/kfone-customer-360/1.0.0/customer`,
+    url: `${appConfig.choreoApiBaseUrl}/kfone-customer-360/1.0.0/customer`,
   };
 
   try {

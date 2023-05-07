@@ -45,7 +45,7 @@ export const sendMarketingMail = async (audience: User[]) => {
     },
     method: HttpMethod.POST,
     params,
-    url: `${appConfig.baseAPIEndpoint}/marketing-campaign-api/1.0.0/sendMarketingMail`,
+    url: `${appConfig.choreoApiBaseUrl}/marketing-campaign-api/1.0.0/sendMarketingMail`,
   };
 
   try {

@@ -18,6 +18,7 @@
 
 import {AuthReactConfig} from '@asgardeo/auth-react';
 import {STSClientConfig} from '@asgardeo/token-exchange-plugin';
+import {appConfig} from './app-config';
 
 /**
  * Represents the configuration options for authentication and token exchange.
@@ -28,15 +29,15 @@ export type AuthConfig = AuthReactConfig & STSClientConfig;
  * The default authentication and token exchange configuration object.
  */
 export const authConfig: AuthConfig = {
-  baseUrl: process.env.REACT_APP_ASGARDEO_BASE_URL ?? '',
-  clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID ?? '',
-  signInRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
-  signOutRedirectURL: process.env.REACT_APP_ASGARDEO_CALLBACK_URL ?? '',
+  baseUrl: appConfig.asgardeoServicesUrl,
+  clientID: appConfig.asgardeoClientId,
+  signInRedirectURL: appConfig.asgardeoLoginCallbackUrl,
+  signOutRedirectURL: appConfig.asgardeoLogoutCallbackUrl,
   scope: ['openid', 'profile'],
   disableTrySignInSilently: false,
   stsConfig: {
-    client_id: process.env.REACT_APP_CHOREO_CLIENT_ID as string,
-    orgHandle: process.env.REACT_APP_CHOREO_ORGANIZATION,
+    client_id: appConfig.choreoClientId,
+    orgHandle: appConfig.choreoOrganization,
     scope: [
       'apim:api_manage',
       'apim:subscription_manage',
@@ -48,6 +49,6 @@ export const authConfig: AuthConfig = {
       'apim:api_generate_key',
     ],
   },
-  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
-  resourceServerURLs: [process.env.REACT_APP_BASE_API_ENDPOINT as string],
+  stsTokenEndpoint: appConfig.choreoTokenEndpoint,
+  resourceServerURLs: [appConfig.choreoApiBaseUrl as string],
 };

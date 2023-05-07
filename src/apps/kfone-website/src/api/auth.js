@@ -18,7 +18,7 @@
 
 import {AsgardeoSPAClient} from '@asgardeo/auth-react';
 import {HttpMethod} from '../models';
-import {authConfig} from '../configs/auth-config';
+import {appConfig} from '../configs';
 
 /**
  * This is a wrapper function for the AsgardeoSPAClient's httpRequest function.
@@ -38,14 +38,14 @@ export const getAccessToken = async () => {
   const requestConfig = {
     attachToken: false,
     headers: {
-      Accept: 'application/json',
+      Authorization: `Basic ${btoa(`${appConfig.choreoClientId}:${appConfig.choreoClientSecret}`)}`,
       'Content-Type': 'application/scim+json',
     },
     method: HttpMethod.POST,
     data: {
       grant_type: 'client_credentials',
     },
-    url: authConfig.stsTokenEndpoint,
+    url: appConfig.endpoints.stsTokenEndpoint,
   };
 
   try {

@@ -44,7 +44,7 @@ export const getUserInteractionsByCategory = async (category: string) => {
     params: {
       category,
     },
-    url: `${appConfig.baseAPIEndpoint}/user-interactions-api/1.0.0/interactionsByCategory`,
+    url: `${appConfig.choreoApiBaseUrl}/user-interactions-api/1.0.0/interactionsByCategory`,
   };
 
   try {

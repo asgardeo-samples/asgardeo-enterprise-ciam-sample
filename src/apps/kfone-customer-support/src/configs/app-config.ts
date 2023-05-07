@@ -21,12 +21,64 @@
  */
 export interface AppConfig {
   /**
-   * The base API endpoint for the application.
-   * @remarks This endpoint is used for all API calls.
+   * The client ID of your Asgardeo application.
    */
-  baseAPIEndpoint: string | undefined;
+  asgardeoClientId: string;
+  /**
+   * The base URL of your Asgardeo organization's services.
+   */
+  asgardeoServicesUrl: string;
+  /**
+   * The callback URL to redirect to after successful authentication with Asgardeo.
+   */
+  asgardeoLoginCallbackUrl: string;
+  /**
+   * The callback URL to redirect to after successful logout from Asgardeo.
+   */
+  asgardeoLogoutCallbackUrl: string;
+  /**
+   * The base URL of the hosted resource APIs.
+   * The portion of any API URL up to and excluding the name of the API.
+   */
+  choreoApiBaseUrl?: string;
+  /**
+   * The consumer ID of your Choreo application.
+   */
+  choreoClientId: string;
+  /**
+   * The secret of your Choreo application.
+   */
+  choreoClientSecret: string;
+  /**
+   * The organization of the Choreo-hosted API.
+   */
+  choreoOrganization: string;
+  /**
+   * Choreo STS token endpoint.
+   */
+  choreoTokenEndpoint: string;
+  /**
+   * Endpoints for various services.
+   */
+  endpoints: {
+    /**
+     * Security Token Service endpoint.
+     */
+    stsTokenEndpoint: string;
+  };
 }
 
 export const appConfig: AppConfig = {
-  baseAPIEndpoint: process.env.REACT_APP_BASE_API_ENDPOINT,
+  asgardeoClientId: process.env.REACT_APP_ASGARDEO_CLIENT_ID ?? '',
+  asgardeoServicesUrl: process.env.REACT_APP_ASGARDEO_SERVICES_URL ?? '',
+  asgardeoLoginCallbackUrl: process.env.REACT_APP_ASGARDEO_LOGIN_CALLBACK_URL ?? '',
+  asgardeoLogoutCallbackUrl: process.env.REACT_APP_ASGARDEO_LOGOUT_CALLBACK_URL ?? '',
+  choreoApiBaseUrl: process.env.REACT_APP_CHOREO_API_BASE_URL as string,
+  choreoClientId: process.env.REACT_APP_CHOREO_CLIENT_ID ?? '',
+  choreoClientSecret: process.env.REACT_APP_CHOREO_CLIENT_SECRET as string,
+  choreoOrganization: process.env.REACT_APP_CHOREO_ORGANIZATION ?? '',
+  choreoTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT as string,
+  endpoints: {
+    stsTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT as string,
+  },
 };
