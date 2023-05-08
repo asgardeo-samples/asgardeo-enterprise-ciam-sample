@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,21 +16,21 @@
  * under the License.
  */
 
-import React, { useState } from 'react';
-import { HiMenuAlt3 } from 'react-icons/hi';
-import { GiCrossedAirFlows } from 'react-icons/gi';
-import { GrClose } from 'react-icons/gr';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
-import { RiSignalTowerFill, RiPieChart2Line } from 'react-icons/ri';
-import { BsHddNetwork, BsCloud, BsPeople } from 'react-icons/bs';
-import { MdOutlineDevices } from 'react-icons/md';
+import React, {useState} from 'react';
+import {HiMenuAlt3} from 'react-icons/hi';
+import {GiCrossedAirFlows} from 'react-icons/gi';
+import {GrClose} from 'react-icons/gr';
+import {IoIosCheckmarkCircleOutline} from 'react-icons/io';
+import {RiSignalTowerFill, RiPieChart2Line} from 'react-icons/ri';
+import {BsHddNetwork, BsCloud, BsPeople} from 'react-icons/bs';
+import {MdOutlineDevices} from 'react-icons/md';
 import office_people from '../assets/images/people/office_people.jpg';
 import testimonial from '../assets/images/people/testimonial.jpg';
 import supportPeople from '../assets/images/people/support.jpg';
 import {Footer} from '../components';
 import {ResourcesSection} from '../components';
 
-const IconPill = ({ icon, text }) => {
+const IconPill = ({icon, text}) => {
   return (
     <div className="grid grid-cols-3 gap-2 items-center justify-between border text-secondary border-secondary-600 rounded-lg p-4 hover:shadow-sm hover:shadow-secondary h-full">
       <div className="mr-4">{icon}</div>
@@ -82,7 +82,8 @@ export const BusinessPage = () => {
             mobileNavOpen
               ? 'fixed left-0 top-0 w-[60%] h-full bg-secondary text-white ease-in-out duration-500'
               : 'fixed left-[-100%]'
-          }>
+          }
+        >
           <h1 className="flex items-center w-full text-white text-3xl font-title m-4">
             <GiCrossedAirFlows size={56} />
             <div className="ml-2 flex flex-col justify-start">
@@ -103,14 +104,11 @@ export const BusinessPage = () => {
             <section className="grid gap-6 text-center lg:grid-cols-2 xl:grid-cols-5">
               <div className="w-full p-6 rounded-md sm:p-16 xl:col-span-2 bg-secondary-900 text-light">
                 <span className="block mb-2 text-primary-200">Anywhere • Anytime</span>
-                <h1 className="text-5xl font-bold text-gray-50">
-                  Solutions Tailored to Fit Your Business
-                </h1>
+                <h1 className="text-5xl font-bold text-gray-50">Solutions Tailored to Fit Your Business</h1>
                 <p className="my-8">
                   Let
-                  <span className="font-bold text-white font-title">&nbsp;Kfone&nbsp;</span>take
-                  care of your telecommunication and cloud requirements no matter what your business
-                  scale is.
+                  <span className="font-bold text-white font-title">&nbsp;Kfone&nbsp;</span>take care of your
+                  telecommunication and cloud requirements no matter what your business scale is.
                 </p>
                 <ul className="mt-10">
                   <li className="mb-4 flex items-center">
@@ -141,30 +139,15 @@ export const BusinessPage = () => {
                 Choose services you need with our flexible plans
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4 items-center justify-center py-5">
-                <IconPill
-                  icon={<RiSignalTowerFill size={36} className="text-primary-100" />}
-                  text={'Connectivity'}
-                />
-                <IconPill
-                  icon={<BsPeople size={36} className="text-primary-100" />}
-                  text={'Collaboration'}
-                />
-                <IconPill
-                  icon={<BsCloud size={36} className="text-primary-100" />}
-                  text={'Cloud & Colocation'}
-                />
-                <IconPill
-                  icon={<BsHddNetwork size={36} className="text-primary-100" />}
-                  text={'Business Networks'}
-                />
+                <IconPill icon={<RiSignalTowerFill size={36} className="text-primary-100" />} text={'Connectivity'} />
+                <IconPill icon={<BsPeople size={36} className="text-primary-100" />} text={'Collaboration'} />
+                <IconPill icon={<BsCloud size={36} className="text-primary-100" />} text={'Cloud & Colocation'} />
+                <IconPill icon={<BsHddNetwork size={36} className="text-primary-100" />} text={'Business Networks'} />
                 <IconPill
                   icon={<MdOutlineDevices size={36} className="text-primary-100" />}
                   text={'Phones & Devices'}
                 />
-                <IconPill
-                  icon={<RiPieChart2Line size={36} className="text-primary-100" />}
-                  text={'Data Insights'}
-                />
+                <IconPill icon={<RiPieChart2Line size={36} className="text-primary-100" />} text={'Data Insights'} />
               </div>
             </section>
             <section className="mt-16">
@@ -207,13 +190,10 @@ export const BusinessPage = () => {
                   <span className="block mb-2 text-primary-300">Let&apos;s get started!</span>
                   <h1 className="text-5xl font-extrabold text-gray-50">Contact us</h1>
                   <p className="my-8">
-                    <span className="font-medium text-gray-50">Drop us a message&nbsp;</span> with
-                    you inquiry and we will get back to you as soon as possible.
+                    <span className="font-medium text-gray-50">Drop us a message&nbsp;</span> with you inquiry and we
+                    will get back to you as soon as possible.
                   </p>
-                  <form
-                    noValidate=""
-                    action=""
-                    className="self-stretch space-y-3 ng-untouched ng-pristine ng-valid">
+                  <form noValidate="" action="" className="self-stretch space-y-3 ng-untouched ng-pristine ng-valid">
                     <div>
                       <label htmlFor="name" className="text-sm sr-only">
                         Your name
@@ -255,67 +235,55 @@ export const BusinessPage = () => {
                         id="message"
                         placeholder="Message"
                         rows="3"
-                        className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-primary-300 dark:bg-gray-800"></textarea>
+                        className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-primary-300 dark:bg-gray-800"
+                      ></textarea>
                     </div>
-                    <button
-                      type="button"
-                      className="w-full py-2 font-semibold rounded bg-primary text-light">
+                    <button type="button" className="w-full py-2 font-semibold rounded bg-primary text-light">
                       Send Message
                     </button>
                   </form>
                 </div>
-                <img
-                  src={supportPeople}
-                  alt=""
-                  className="object-cover w-full rounded-md xl:col-span-3 bg-gray-500"
-                />
+                <img src={supportPeople} alt="" className="object-cover w-full rounded-md xl:col-span-3 bg-gray-500" />
               </div>
             </section>
             <section className="mt-16">
               <span className="block mb-2 text-xs font-medium tracking-widest uppercase lg:text-center text-secondary-900">
                 Testimonials
               </span>
-              <h2 className="text-4xl lg:text-center text-secondary-700">
-                What our customers are saying about us
-              </h2>
+              <h2 className="text-4xl lg:text-center text-secondary-700">What our customers are saying about us</h2>
               <div className="my-8 py-8 bg-light text-secondary-900">
                 <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
                     fill="currentColor"
-                    className="w-16 h-16 text-primary-200">
+                    className="w-16 h-16 text-primary-200"
+                  >
                     <polygon points="328.375 384 332.073 458.999 256.211 406.28 179.924 459.049 183.625 384 151.586 384 146.064 496 182.756 496 256.169 445.22 329.242 496 365.936 496 360.414 384 328.375 384"></polygon>
                     <path d="M415.409,154.914l-2.194-48.054L372.7,80.933,346.768,40.414l-48.055-2.2L256,16.093,213.287,38.219l-48.055,2.2L139.3,80.933,98.785,106.86l-2.194,48.054L74.464,197.628l22.127,42.715,2.2,48.053L139.3,314.323l25.928,40.52,48.055,2.195L256,379.164l42.713-22.126,48.055-2.195,25.928-40.52L413.214,288.4l2.195-48.053,22.127-42.715Zm-31.646,76.949L382,270.377l-32.475,20.78-20.78,32.475-38.515,1.76L256,343.125l-34.234-17.733-38.515-1.76-20.78-32.475L130,270.377l-1.759-38.514L110.5,197.628,128.237,163.4,130,124.88,162.471,104.1l20.78-32.474,38.515-1.76L256,52.132l34.234,17.733,38.515,1.76,20.78,32.474L382,124.88l1.759,38.515L401.5,197.628Z"></path>
                   </svg>
                   <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl text-gray-700">
-                    &quot;We always rely on Kfone&apos;s cloud services. Since we joined with Kfone
-                    we didn&apos;t have to worry a bit. 100% uptime is guaranteed.&quot;
+                    &quot;We always rely on Kfone&apos;s cloud services. Since we joined with Kfone we didn&apos;t have
+                    to worry a bit. 100% uptime is guaranteed.&quot;
                   </p>
                   <div className="flex justify-center space-x-3">
-                    <img
-                      src={testimonial}
-                      alt=""
-                      className="w-20 h-20 bg-center bg-cover rounded-md bg-gray-700"
-                    />
+                    <img src={testimonial} alt="" className="w-20 h-20 bg-center bg-cover rounded-md bg-gray-700" />
                     <div>
                       <p className="leading-tight">John Doe</p>
-                      <p className="text-sm leading-tight text-gray-600">
-                        Founder/CEO, Tyche Techs
-                      </p>
-                      <a
-                        className="flex items-center py-2 space-x-1 text-sm text-primary-300"
-                        href="/">
+                      <p className="text-sm leading-tight text-gray-600">Founder/CEO, Tyche Techs</p>
+                      <a className="flex items-center py-2 space-x-1 text-sm text-primary-300" href="/">
                         <span>Read full story</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          className="w-4 h-4">
+                          className="w-4 h-4"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"></path>
+                            clipRule="evenodd"
+                          ></path>
                         </svg>
                       </a>
                     </div>
@@ -328,19 +296,21 @@ export const BusinessPage = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                         fill="currentColor"
-                        className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700">
+                        className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700"
+                      >
                         <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                         <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                       </svg>
                       <p className="px-6 py-1 text-lg italic">
-                        &nbsp;We&apos;ve seen amazing results already. Kfone impressed me on
-                        multiple levels. Kfone did exactly what you said it does.&nbsp;
+                        &nbsp;We&apos;ve seen amazing results already. Kfone impressed me on multiple levels. Kfone did
+                        exactly what you said it does.&nbsp;
                       </p>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                         fill="currentColor"
-                        className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-700">
+                        className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-700"
+                      >
                         <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
                         <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
                       </svg>
@@ -353,28 +323,31 @@ export const BusinessPage = () => {
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
-                        className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700">
+                        className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700"
+                      >
+                        <path fill="currentColor" d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                         <path
                           fill="currentColor"
-                          d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-                        <path
-                          fill="currentColor"
-                          d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
+                          d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"
+                        ></path>
                       </svg>
                       <p className="px-6 py-1 text-lg italic">
-                        &nbsp;Kfone is the most valuable business resource we have EVER purchased.
-                        Kfone has really helped our business.&nbsp;
+                        &nbsp;Kfone is the most valuable business resource we have EVER purchased. Kfone has really
+                        helped our business.&nbsp;
                       </p>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
-                        className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-700">
+                        className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-700"
+                      >
                         <path
                           fill="currentColor"
-                          d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
+                          d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"
+                        ></path>
                         <path
                           fill="currentColor"
-                          d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
+                          d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"
+                        ></path>
                       </svg>
                     </div>
                     <span className="w-12 h-1 my-2 rounded-lg bg-primary-200"></span>

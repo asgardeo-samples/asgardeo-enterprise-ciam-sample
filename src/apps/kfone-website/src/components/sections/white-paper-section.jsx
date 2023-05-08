@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,17 +16,17 @@
  * under the License.
  */
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { getAccessToken } from '../../api';
+import {getAccessToken} from '../../api';
 import {Spinner} from '..';
-import { IoClose } from 'react-icons/io5';
-import { HiOutlineExternalLink, HiOutlineDownload } from 'react-icons/hi';
-import { RiFilePaperLine } from 'react-icons/ri';
+import {IoClose} from 'react-icons/io5';
+import {HiOutlineExternalLink, HiOutlineDownload} from 'react-icons/hi';
+import {RiFilePaperLine} from 'react-icons/ri';
 import whitepaper from '../../assets/images/business/whitepaper.png';
 import {Notification} from '..';
-import { downloadURL, validateEmail } from '../../utils';
+import {downloadURL, validateEmail} from '../../utils';
 
 export const WhitePaperSection = () => {
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ export const WhitePaperSection = () => {
     setShowNotification(true);
   };
 
-  const handleWhitePaperDownload = async (e) => {
+  const handleWhitePaperDownload = async e => {
     e.preventDefault();
 
     setWhitePaperEmailEmpty(false);
@@ -74,46 +74,46 @@ export const WhitePaperSection = () => {
     const modalToggle = document.getElementById('whitepaper-modal');
 
     Promise.resolve(getAccessToken())
-      .then((res) => {
+      .then(res => {
         if (res.status === 200) {
           return res.data.access_token;
         } else {
           throw new Error('Error retrieving access token');
         }
       })
-      .then((token) => {
+      .then(token => {
         axios
           .post(
             // eslint-disable-next-line no-undef
             `${process.env.REACT_APP_CHOREO_API_BASE_URL}/whitepaper-download/1.0.0/whitePaperDownload`,
             {
               email,
-              isWebinarAlert
+              isWebinarAlert,
             },
             {
               headers: {
                 Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-              }
-            }
+                'Content-Type': 'application/json',
+              },
+            },
           )
           .then(() => {
             setLoading(false);
             downloadURL(
               'https://github.com/chaminjay/FileCloud/raw/main/kfone/kfone-whitepaper.pdf',
-              'kfone whitepaper.pdf'
+              'kfone whitepaper.pdf',
             );
             e.target.email.value = '';
             e.target.subscribed.checked = false;
             modalToggle.checked = false;
             sendNotification('success', 'Thank you!', 'Keep in touch with us for more resources.');
           })
-          .catch((err) => {
+          .catch(err => {
             setLoading(false);
             sendNotification('error', 'An error occurred', err.message);
           });
       })
-      .catch((err) => {
+      .catch(err => {
         setLoading(false);
         sendNotification('error', 'An error occurred', err.message);
       });
@@ -140,23 +140,22 @@ export const WhitePaperSection = () => {
               <div>
                 <h6 className="font-medium text-xl">5G Enabled Digital Acceleration</h6>
                 <p className="font-light text-sm text-gray-400">
-                  We look forward to helping shape your digital transformation roadmap and
-                  implementation with 5G enabled, next generation networking, cloud and security
-                  based on data from a global survey of security, IT, and business leaders, new
-                  market research, and insights from leading security vendors.
+                  We look forward to helping shape your digital transformation roadmap and implementation with 5G
+                  enabled, next generation networking, cloud and security based on data from a global survey of
+                  security, IT, and business leaders, new market research, and insights from leading security vendors.
                 </p>
               </div>
               <div>
                 <small className="font-bold text-xs text-gray-500 p-1 block">
-                  <span className="font-title">Kfone</span> works closely with some of the
-                  world&apos;s most respected consultants and industry analysts to understand
-                  customer requirements, improve our product portfolio and help predict future
-                  trends.
+                  <span className="font-title">Kfone</span> works closely with some of the world&apos;s most respected
+                  consultants and industry analysts to understand customer requirements, improve our product portfolio
+                  and help predict future trends.
                 </small>
                 <label
                   type="button"
                   htmlFor="whitepaper-modal"
-                  className="px-8 py-3 mt-4 inline-flex items-center rounded bg-primary-600 text-gray-100 hover:-translate-y-1 transition duration-500 cursor-pointer">
+                  className="px-8 py-3 mt-4 inline-flex items-center rounded bg-primary-600 text-gray-100 hover:-translate-y-1 transition duration-500 cursor-pointer"
+                >
                   Read more
                   <HiOutlineExternalLink className="ml-2" />
                 </label>
@@ -188,10 +187,9 @@ export const WhitePaperSection = () => {
               <div>
                 <h6 className="font-medium text-xl">5G Enabled Digital Acceleration</h6>
                 <p className="font-light text-sm text-gray-400">
-                  We look forward to helping shape your digital transformation roadmap and
-                  implementation with 5G enabled, next generation networking, cloud and security
-                  based on data from a global survey of security, IT, and business leaders, new
-                  market research, and insights from leading security vendors.
+                  We look forward to helping shape your digital transformation roadmap and implementation with 5G
+                  enabled, next generation networking, cloud and security based on data from a global survey of
+                  security, IT, and business leaders, new market research, and insights from leading security vendors.
                 </p>
               </div>
               <div className="form-control w-full max-w-xs mt-10">
@@ -209,14 +207,10 @@ export const WhitePaperSection = () => {
                     className="input input-bordered w-full max-w-xs focus:ring-secondary-100 focus:border-secondary-100 focus:outline-none"
                   />
                   <label className="label">
-                    <span
-                      hidden={!whitepaperEmailError}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!whitepaperEmailError} className="label-text-alt font-light text-red-800">
                       Please enter a valid email.
                     </span>
-                    <span
-                      hidden={!whitepaperEmailEmpty}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!whitepaperEmailEmpty} className="label-text-alt font-light text-red-800">
                       This field is required.
                     </span>
                   </label>
@@ -230,10 +224,7 @@ export const WhitePaperSection = () => {
                       Send me future <span className="font-title">kfone</span> updates
                     </span>
                   </label>
-                  <button
-                    disabled={loading}
-                    type="submit"
-                    className="btn btn-outline btn-primary mt-4 mb-1">
+                  <button disabled={loading} type="submit" className="btn btn-outline btn-primary mt-4 mb-1">
                     Download White Paper
                     {loading ? (
                       <span className="ml-2">
@@ -244,12 +235,8 @@ export const WhitePaperSection = () => {
                     )}
                   </button>
                   <small className="text-[10px] text-gray-600 px-1 block">
-                    By clicking the <span className="font-bold">Download</span> button you agree to
-                    our&nbsp;
-                    <Link
-                      className="text-primary hover:underline"
-                      to="/privacy-policy"
-                      target="_blank">
+                    By clicking the <span className="font-bold">Download</span> button you agree to our&nbsp;
+                    <Link className="text-primary hover:underline" to="/privacy-policy" target="_blank">
                       Privacy Policy
                     </Link>
                     .

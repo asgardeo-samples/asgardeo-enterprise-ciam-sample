@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,9 +16,9 @@
  * under the License.
  */
 
-import { useRef } from 'react';
-import { useAuthContext } from '@asgardeo/auth-react';
-import { recordUserInteractions } from '../../../../api';
+import {useRef} from 'react';
+import {useAuthContext} from '@asgardeo/auth-react';
+import {recordUserInteractions} from '../../../../api';
 import iPhone14ProMaxDeepPurple from '../../../../assets/images/explore/shop/iphone-14-pro-max-deep-purple-feature1-m.jpeg';
 import SamsungGalaxyZFold45G from '../../../../assets/images/explore/shop/samsung-galaxy-z-fold4-greygreen-01-m.jpeg';
 import GooglePixel7Pro from '../../../../assets/images/explore/shop/google-pixel-7-pro-hazel-01-m.jpeg';
@@ -29,7 +29,7 @@ import MotorolaEdge from '../../../../assets/images/explore/shop/motorola-edge-3
 import SamsungGalaxyA134G from '../../../../assets/images/explore/shop/samsung-galaxy-a13-black-front-m.jpeg';
 
 export const PhonesSection = () => {
-  const { state, httpRequest } = useAuthContext();
+  const {state} = useAuthContext();
   const mobileDeviceVisitsCounter = useRef(0);
 
   const phones = [
@@ -38,68 +38,65 @@ export const PhonesSection = () => {
       name: 'iPhone 14 Pro Max',
       brand: 'Apple',
       imageSrc: iPhone14ProMaxDeepPurple,
-      price: '53.00'
+      price: '53.00',
     },
     {
       id: 2,
       name: 'Samsung Galaxy Z Fold4',
       brand: 'Samsung',
       imageSrc: SamsungGalaxyZFold45G,
-      price: '67.50'
+      price: '67.50',
     },
     {
       id: 3,
       name: 'Google Pixel 7 Pro',
       brand: 'Google',
       imageSrc: GooglePixel7Pro,
-      price: '36.00'
+      price: '36.00',
     },
     {
       id: 4,
       name: 'OPPO Reno8 5G',
       brand: 'Oppo',
       imageSrc: OPPOReno85G,
-      price: '26.50'
+      price: '26.50',
     },
     {
       id: 5,
       name: 'iPhone SE (3rd gen)',
       brand: 'Apple',
       imageSrc: iPhoneSE,
-      price: '20.00'
+      price: '20.00',
     },
     {
       id: 6,
       name: 'Motorola moto g62 5G',
       brand: 'Motorola',
       imageSrc: MotorolaMotog62,
-      price: '12.50'
+      price: '12.50',
     },
     {
       id: 7,
       name: 'Motorola edge 30 5G',
       brand: 'Motorola',
       imageSrc: MotorolaEdge,
-      price: '14.00'
+      price: '14.00',
     },
     {
       id: 8,
       name: 'Samsung Galaxy A13 4G',
       brand: 'Samsung',
       imageSrc: SamsungGalaxyA134G,
-      price: '11.00'
-    }
+      price: '11.00',
+    },
   ];
 
   const recordInteraction = () => {
     mobileDeviceVisitsCounter.current++;
 
-    recordUserInteractions(
-      state.email,
-      {
-        smartPhoneVisits: mobileDeviceVisitsCounter.current
-      }
-    );
+    recordUserInteractions(state.email, {
+      smartPhoneVisits: mobileDeviceVisitsCounter.current,
+    });
   };
 
   return (
@@ -110,12 +107,12 @@ export const PhonesSection = () => {
             Choose your mobile phone
           </h2>
           <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            With <span className="text-primary-500 font-medium">Kfone</span>, you can pay for your
-            new phone interest free over 12, 24 or 36 months.
+            With <span className="text-primary-500 font-medium">Kfone</span>, you can pay for your new phone interest
+            free over 12, 24 or 36 months.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {phones.map((phone) => (
+          {phones.map(phone => (
             <div key={phone.id} className="w-80 flex justify-center items-center">
               <div className="w-full p-4">
                 <div className="card flex flex-col justify-center p-10 bg-white rounded-lg border border-gray-100 shadow hover:shadow-2xl">
@@ -124,11 +121,7 @@ export const PhonesSection = () => {
                     <p className="text-md text-gray-900 font-bold">{phone.name}</p>
                   </div>
                   <div className="prod-img p-5">
-                    <img
-                      height="166"
-                      src={phone.imageSrc}
-                      className="w-full object-cover object-center"
-                    />
+                    <img height="166" src={phone.imageSrc} className="w-full object-cover object-center" alt="phone" />
                   </div>
                   <div className="device-price">
                     <div className="text-xs text-gray-400">Starting from</div>
@@ -141,7 +134,8 @@ export const PhonesSection = () => {
                   <div className="mt-5">
                     <button
                       onClick={recordInteraction}
-                      className="w-full px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">
+                      className="w-full px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none"
+                    >
                       See More
                     </button>
                   </div>

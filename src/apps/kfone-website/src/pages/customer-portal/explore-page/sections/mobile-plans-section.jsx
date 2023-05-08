@@ -16,13 +16,15 @@
  * under the License.
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import {useRef} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
 import {recordUserInteractions} from '../../../../api';
 import {MdCheck} from 'react-icons/md';
 
 export const MobilePlansSection = () => {
-  const {state, httpRequest} = useAuthContext();
+  const {state} = useAuthContext();
   const mobileSubscriptionVisitsCounter = useRef(0);
 
   const recordInteraction = () => {
@@ -56,7 +58,7 @@ export const MobilePlansSection = () => {
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center text-sm">
                 <MdCheck className="inline text-emerald-400 mr-2" size={18} />
                 <span>
@@ -98,7 +100,7 @@ export const MobilePlansSection = () => {
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center text-sm">
                 <MdCheck className="inline text-emerald-400 mr-2" size={18} />
                 <span>
@@ -140,7 +142,7 @@ export const MobilePlansSection = () => {
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center text-sm">
                 <MdCheck className="inline text-emerald-400 mr-2" size={18} />
                 <span>Unlimited Max Speed data on our 5G network</span>

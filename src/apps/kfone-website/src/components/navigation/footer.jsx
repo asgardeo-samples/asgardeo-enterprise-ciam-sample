@@ -16,6 +16,8 @@
  * under the License.
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import {GiCrossedAirFlows, GiRadioTower} from 'react-icons/gi';
 import {TbHeartHandshake} from 'react-icons/tb';

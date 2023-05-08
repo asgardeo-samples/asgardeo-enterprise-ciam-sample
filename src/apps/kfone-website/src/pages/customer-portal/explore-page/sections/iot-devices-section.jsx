@@ -25,7 +25,7 @@ import USBConnect from '../../../../assets/images/explore/shop/usb-connectt.png'
 import SmartSwitch from '../../../../assets/images/explore/shop/smart-switch.webp';
 
 export const IOTDevicesSection = () => {
-  const {state, httpRequest} = useAuthContext();
+  const {state} = useAuthContext();
   const iotDeviceVisitsCounter = useRef(0);
 
   const devices = [
@@ -91,6 +91,7 @@ export const IOTDevicesSection = () => {
                       style={{height: '160px'}}
                       src={device.imageSrc}
                       className="w-full object-cover object-center"
+                      alt="device"
                     />
                   </div>
                   <div className="device-price">

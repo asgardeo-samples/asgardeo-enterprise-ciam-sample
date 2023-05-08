@@ -37,7 +37,7 @@ export const HeroSection = ({className, ...rest}) => {
       }}
       {...rest}
     >
-      <img className="w-80 md:w-64 lg:w-72" src={connections} alt="connections image" />
+      <img className="w-80 md:w-64 lg:w-72" src={connections} alt="connections" />
       <h1 className="flex justify-center items-center w-full text-secondary text-2xl font-title">
         <GiCrossedAirFlows size={30} />
         <div className="ml-2">Kfone</div>

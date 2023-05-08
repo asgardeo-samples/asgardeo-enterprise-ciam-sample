@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2022, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,17 +16,17 @@
  * under the License.
  */
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { getAccessToken } from '../../api';
+import {getAccessToken} from '../../api';
 import {Spinner} from '..';
-import { BsCalendarPlus } from 'react-icons/bs';
+import {BsCalendarPlus} from 'react-icons/bs';
 import webinar from '../../assets/images/business/webinar.png';
 import {Notification} from '..';
-import { validateEmail } from '../../utils';
+import {validateEmail} from '../../utils';
 
-export const WebinarForm = ({ closeModal, encodedEmail }) => {
+export const WebinarForm = ({closeModal, encodedEmail}) => {
   const [loading, setLoading] = useState(false);
   const [firstNameEmpty, setFirstNameEmpty] = useState(false);
   const [lastNameEmpty, setLastNameEmpty] = useState(false);
@@ -52,7 +52,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
     setShowNotification(true);
   };
 
-  const handleWebinarRegistration = async (e) => {
+  const handleWebinarRegistration = async e => {
     e.preventDefault();
 
     setFirstNameEmpty(false);
@@ -91,14 +91,14 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
     setLoading(true);
 
     Promise.resolve(getAccessToken())
-      .then((res) => {
+      .then(res => {
         if (res.status === 200) {
           return res.data.access_token;
         } else {
           throw new Error('Error retrieving access token');
         }
       })
-      .then((token) => {
+      .then(token => {
         axios
           .post(
             // eslint-disable-next-line no-undef
@@ -107,34 +107,30 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
               company: company,
               email: email,
               firstname: firstName,
-              lastname: lastName
+              lastname: lastName,
             },
             {
               headers: {
                 Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-              }
-            }
+                'Content-Type': 'application/json',
+              },
+            },
           )
           .then(() => {
             e.target.firstName.value = '';
             e.target.lastName.value = '';
             e.target.email.value = '';
             e.target.company.value = '';
-            sendNotification(
-              'success',
-              'Thank you!',
-              'We will send you more details to your email.'
-            );
+            sendNotification('success', 'Thank you!', 'We will send you more details to your email.');
             setLoading(false);
             closeModal();
           })
-          .catch((err) => {
+          .catch(err => {
             setLoading(false);
             sendNotification('error', 'An error occurred', err.message);
           });
       })
-      .catch((err) => {
+      .catch(err => {
         sendNotification('error', 'An error occurred', err.message);
         setLoading(false);
       });
@@ -155,11 +151,10 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
           <div>
             <h6 className="font-medium text-xl">Cybersecurity and Your Remote Workforce</h6>
             <p className="font-light text-sm text-gray-400">
-              A guide to help protect your data, your business and your employees, for your remote
-              workforce, now and in the future Asia Pacific Edition. Kfone conducted a survey of 500
-              cybersecurity experts in Hong Kong, Singapore and Australia, designed to identify
-              their views on issues including cyber threats and how their role has changed as a
-              result of COVID-19. It also looks at four steps you can take to help reduce
+              A guide to help protect your data, your business and your employees, for your remote workforce, now and in
+              the future Asia Pacific Edition. Kfone conducted a survey of 500 cybersecurity experts in Hong Kong,
+              Singapore and Australia, designed to identify their views on issues including cyber threats and how their
+              role has changed as a result of COVID-19. It also looks at four steps you can take to help reduce
               vulnerability to cyber attacks.
             </p>
           </div>
@@ -180,9 +175,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
                     className="input input-bordered w-full max-w-xs focus:ring-secondary-100 focus:border-secondary-100 focus:outline-none"
                   />
                   <label className="label">
-                    <span
-                      hidden={!firstNameEmpty}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!firstNameEmpty} className="label-text-alt font-light text-red-800">
                       This field is required.
                     </span>
                   </label>
@@ -201,9 +194,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
                     className="input input-bordered w-full max-w-xs focus:ring-secondary-100 focus:border-secondary-100 focus:outline-none"
                   />
                   <label className="label">
-                    <span
-                      hidden={!lastNameEmpty}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!lastNameEmpty} className="label-text-alt font-light text-red-800">
                       This field is required.
                     </span>
                   </label>
@@ -235,14 +226,10 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
                     />
                   )}
                   <label className="label">
-                    <span
-                      hidden={!webinarEmailError}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!webinarEmailError} className="label-text-alt font-light text-red-800">
                       Please enter a valid email.
                     </span>
-                    <span
-                      hidden={!webinarEmailEmpty}
-                      className="label-text-alt font-light text-red-800">
+                    <span hidden={!webinarEmailEmpty} className="label-text-alt font-light text-red-800">
                       This field is required.
                     </span>
                   </label>
@@ -267,10 +254,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
                   </label>
                 </div>
               </div>
-              <button
-                disabled={loading}
-                type="submit"
-                className="btn btn-outline btn-primary mt-4 mb-1">
+              <button disabled={loading} type="submit" className="btn btn-outline btn-primary mt-4 mb-1">
                 Join Webinar
                 {loading ? (
                   <span className="ml-2">
@@ -281,8 +265,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
                 )}
               </button>
               <small className="text-[10px] text-gray-600 px-1 block">
-                By clicking the <span className="font-bold">Join Webinar</span> button you agree to
-                our&nbsp;
+                By clicking the <span className="font-bold">Join Webinar</span> button you agree to our&nbsp;
                 <Link className="text-primary hover:underline" to="/privacy-policy" target="_blank">
                   Privacy Policy
                 </Link>

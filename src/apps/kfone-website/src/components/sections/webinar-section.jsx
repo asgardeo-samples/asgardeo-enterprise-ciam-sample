@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,9 +16,9 @@
  * under the License.
  */
 
-import { BsDisplay } from 'react-icons/bs';
-import { IoClose } from 'react-icons/io5';
-import { HiOutlineExternalLink } from 'react-icons/hi';
+import {BsDisplay} from 'react-icons/bs';
+import {IoClose} from 'react-icons/io5';
+import {HiOutlineExternalLink} from 'react-icons/hi';
 import webinar from '../../assets/images/business/webinar.png';
 import {WebinarForm} from '../forms';
 
@@ -49,12 +49,11 @@ export const WebinarSection = () => {
               <div>
                 <h6 className="font-medium text-xl">Cybersecurity and Your Remote Workforce</h6>
                 <p className="font-light text-sm text-gray-400">
-                  A guide to help protect your data, your business and your employees, for your
-                  remote workforce, now and in the future Asia Pacific Edition. Kfone conducted a
-                  survey of 500 cybersecurity experts in Hong Kong, Singapore and Australia,
-                  designed to identify their views on issues including cyber threats and how their
-                  role has changed as a result of COVID-19. It also looks at four steps you can take
-                  to help reduce vulnerability to cyber attacks.
+                  A guide to help protect your data, your business and your employees, for your remote workforce, now
+                  and in the future Asia Pacific Edition. Kfone conducted a survey of 500 cybersecurity experts in Hong
+                  Kong, Singapore and Australia, designed to identify their views on issues including cyber threats and
+                  how their role has changed as a result of COVID-19. It also looks at four steps you can take to help
+                  reduce vulnerability to cyber attacks.
                 </p>
               </div>
               <div>
@@ -64,7 +63,8 @@ export const WebinarSection = () => {
                 <label
                   type="button"
                   htmlFor="webinar-modal"
-                  className="px-8 py-3 mt-4 inline-flex items-center rounded bg-primary-600 text-gray-100 hover:-translate-y-1 transition duration-500 cursor-pointer">
+                  className="px-8 py-3 mt-4 inline-flex items-center rounded bg-primary-600 text-gray-100 hover:-translate-y-1 transition duration-500 cursor-pointer"
+                >
                   Save my free spot
                   <HiOutlineExternalLink className="ml-2" />
                 </label>

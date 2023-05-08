@@ -35,7 +35,7 @@ export const VerticalCard = ({title, subTitle, image, description, action, class
         <h4 className="font-thin">{subTitle}</h4>
       </div>
       <div className="p-2 my-2">
-        <img className="h-72" src={image} alt="card image" />
+        <img className="h-72" src={image} alt="card" />
       </div>
       <div className="p-4">
         <p className="font-light text-sm">{description}</p>

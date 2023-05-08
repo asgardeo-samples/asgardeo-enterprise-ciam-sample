@@ -16,12 +16,14 @@
  * under the License.
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import {useRef} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
 import {recordUserInteractions} from '../../../../api';
 
 export const TVPlansSection = () => {
-  const {state, httpRequest} = useAuthContext();
+  const {state} = useAuthContext();
   const tvSubscriptionVisitsCounter = useRef(0);
 
   const recordInteraction = () => {
@@ -50,7 +52,7 @@ export const TVPlansSection = () => {
               <span className="mr-2 text-5xl font-extrabold">$29</span>
               <span className="text-gray-500 dark:text-gray-400">/month</span>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center space-x-3">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
@@ -100,7 +102,7 @@ export const TVPlansSection = () => {
               <span className="mr-2 text-5xl font-extrabold">$39</span>
               <span className="text-gray-500 dark:text-gray-400">/month</span>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center space-x-3">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
@@ -150,7 +152,7 @@ export const TVPlansSection = () => {
               <span className="mr-2 text-5xl font-extrabold">$49</span>
               <span className="text-gray-500 dark:text-gray-400">/month</span>
             </div>
-            <ul role="list" className="mb-8 space-y-4 text-left">
+            <ul className="mb-8 space-y-4 text-left">
               <li className="flex items-center space-x-3">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"

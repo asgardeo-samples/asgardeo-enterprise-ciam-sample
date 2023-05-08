@@ -16,11 +16,12 @@
  * under the License.
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, {useEffect, useState} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
-import {useAuthContext} from '@asgardeo/auth-react';
 import {PrimaryButton} from '../../components';
 import {initiatePhoneVerify, verifyPhone} from '../../api';
 import {AuthLayout} from '../../layouts';
@@ -28,7 +29,6 @@ import {AuthLayout} from '../../layouts';
 export const PhoneVerificationPage = () => {
   const history = useHistory();
   const location = useLocation();
-  const {httpRequest} = useAuthContext();
 
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
