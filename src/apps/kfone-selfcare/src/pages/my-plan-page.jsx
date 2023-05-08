@@ -21,11 +21,11 @@
 import React, {useEffect, useState} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
 import {useHistory} from 'react-router-dom';
-import {CustomerPortalLayout} from '../../layouts';
+import {CustomerPortalLayout} from '../layouts';
 import {BsCheck} from 'react-icons/bs';
-import {getUsageData, getPackageRecommendation} from '../../api';
-import {getMonthString} from '../../utils';
-import {SectionLoader} from '../../components';
+import {getUsageData, getPackageRecommendation} from '../api';
+import {getMonthString} from '../utils';
+import {SectionLoader} from '../components';
 
 const currentYear = new Date().getFullYear();
 

@@ -22,9 +22,9 @@ import React, {useEffect, useState} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
-import {PrimaryButton} from '../../components';
-import {initiatePhoneVerify, verifyPhone} from '../../api';
-import {AuthLayout} from '../../layouts';
+import {PrimaryButton} from '../components';
+import {initiatePhoneVerify, verifyPhone} from '../api';
+import {AuthLayout} from '../layouts';
 
 export const PhoneVerificationPage = () => {
   const history = useHistory();

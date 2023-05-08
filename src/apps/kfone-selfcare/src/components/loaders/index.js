@@ -17,5 +17,4 @@
  */
 
 export * from './loading';
-export * from './spinner';
 export * from './section-loader';

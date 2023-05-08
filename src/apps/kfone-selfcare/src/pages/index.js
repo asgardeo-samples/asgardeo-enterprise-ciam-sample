@@ -16,9 +16,8 @@
  * under the License.
  */
 
-export * from './customer-portal';
 export * from './404-page';
-export * from './business-page';
-export * from './home-page';
+export * from './explore-page';
+export * from './my-plan-page';
+export * from './phone-verification-page';
 export * from './privacy-policy-page';
-export * from './webinar-registration-page';

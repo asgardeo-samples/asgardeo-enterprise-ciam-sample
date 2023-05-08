@@ -20,7 +20,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {NotFoundErrorPage, PrivacyPolicyPage} from './pages';
 import {SecureRouteWithRedirect} from './components';
-import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages/customer-portal';
+import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages';
 
 export const App = () => {
   return (

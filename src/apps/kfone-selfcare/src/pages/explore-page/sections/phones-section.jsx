@@ -18,15 +18,15 @@
 
 import {useRef} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
-import {recordUserInteractions} from '../../../../api';
-import iPhone14ProMaxDeepPurple from '../../../../assets/images/explore/shop/iphone-14-pro-max-deep-purple-feature1-m.jpeg';
-import SamsungGalaxyZFold45G from '../../../../assets/images/explore/shop/samsung-galaxy-z-fold4-greygreen-01-m.jpeg';
-import GooglePixel7Pro from '../../../../assets/images/explore/shop/google-pixel-7-pro-hazel-01-m.jpeg';
-import OPPOReno85G from '../../../../assets/images/explore/shop/oppo-reno8-5g-shimmer-black-front-m.jpeg';
-import iPhoneSE from '../../../../assets/images/explore/shop/iphone-se-midnight-blue-feature1-m.jpeg';
-import MotorolaMotog62 from '../../../../assets/images/explore/shop/motorola-moto-g62-5g-midnight-grey-front-m.jpeg';
-import MotorolaEdge from '../../../../assets/images/explore/shop/motorola-edge-30-grey-front-m.jpeg';
-import SamsungGalaxyA134G from '../../../../assets/images/explore/shop/samsung-galaxy-a13-black-front-m.jpeg';
+import {recordUserInteractions} from '../../../api';
+import iPhone14ProMaxDeepPurple from '../../../assets/images/explore/shop/iphone-14-pro-max-deep-purple-feature1-m.jpeg';
+import SamsungGalaxyZFold45G from '../../../assets/images/explore/shop/samsung-galaxy-z-fold4-greygreen-01-m.jpeg';
+import GooglePixel7Pro from '../../../assets/images/explore/shop/google-pixel-7-pro-hazel-01-m.jpeg';
+import OPPOReno85G from '../../../assets/images/explore/shop/oppo-reno8-5g-shimmer-black-front-m.jpeg';
+import iPhoneSE from '../../../assets/images/explore/shop/iphone-se-midnight-blue-feature1-m.jpeg';
+import MotorolaMotog62 from '../../../assets/images/explore/shop/motorola-moto-g62-5g-midnight-grey-front-m.jpeg';
+import MotorolaEdge from '../../../assets/images/explore/shop/motorola-edge-30-grey-front-m.jpeg';
+import SamsungGalaxyA134G from '../../../assets/images/explore/shop/samsung-galaxy-a13-black-front-m.jpeg';
 
 export const PhonesSection = () => {
   const {state} = useAuthContext();

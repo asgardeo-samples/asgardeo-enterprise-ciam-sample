@@ -20,7 +20,7 @@
 
 import {useRef} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
-import {recordUserInteractions} from '../../../../api';
+import {recordUserInteractions} from '../../../api';
 
 export const TVPlansSection = () => {
   const {state} = useAuthContext();

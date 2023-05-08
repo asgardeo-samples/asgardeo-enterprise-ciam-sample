@@ -18,11 +18,11 @@
 
 import {useRef} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
-import {recordUserInteractions} from '../../../../api';
-import AmazonAlexa from '../../../../assets/images/explore/shop/amazon-alexa.png';
-import DLinkModem from '../../../../assets/images/explore/shop/dlink-modem.png';
-import USBConnect from '../../../../assets/images/explore/shop/usb-connectt.png';
-import SmartSwitch from '../../../../assets/images/explore/shop/smart-switch.webp';
+import {recordUserInteractions} from '../../../api';
+import AmazonAlexa from '../../../assets/images/explore/shop/amazon-alexa.png';
+import DLinkModem from '../../../assets/images/explore/shop/dlink-modem.png';
+import USBConnect from '../../../assets/images/explore/shop/usb-connectt.png';
+import SmartSwitch from '../../../assets/images/explore/shop/smart-switch.webp';
 
 export const IOTDevicesSection = () => {
   const {state} = useAuthContext();
