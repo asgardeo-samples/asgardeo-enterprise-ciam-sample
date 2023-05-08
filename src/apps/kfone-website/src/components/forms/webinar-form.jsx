@@ -102,7 +102,7 @@ export const WebinarForm = ({ closeModal, encodedEmail }) => {
         axios
           .post(
             // eslint-disable-next-line no-undef
-            `${process.env.REACT_APP_BASE_API_ENDPOINT}/webinar-registration/1.0.0/trackWebinarRegistration`,
+            `${process.env.REACT_APP_CHOREO_API_BASE_URL}/webinar-registration/1.0.0/trackWebinarRegistration`,
             {
               company: company,
               email: email,

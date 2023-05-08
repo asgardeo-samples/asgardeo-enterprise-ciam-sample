@@ -41,7 +41,7 @@ export const getUsageData = async userId => {
       'Content-Type': 'application/scim+json',
     },
     method: HttpMethod.GET,
-    url: `${appConfig.baseAPIEndpoint}/usage-data-api/1.0.0/getUsageData?userId=${userId}`,
+    url: `${appConfig.choreoApiBaseUrl}/usage-data-api/1.0.0/getUsageData?userId=${userId}`,
   };
 
   try {
@@ -70,7 +70,7 @@ export const getPackageRecommendation = async userId => {
     params: {
       userId,
     },
-    url: `${appConfig.baseAPIEndpoint}/usage-data-api/1.0.0/packageRecommendation`,
+    url: `${appConfig.choreoApiBaseUrl}/usage-data-api/1.0.0/packageRecommendation`,
   };
 
   try {

@@ -16,6 +16,31 @@
  * under the License.
  */
 
+import {appConfig} from './app-config';
+
+/**
+ * The default authentication and token exchange configuration object.
+ */
 export const authConfig = {
-  stsTokenEndpoint: process.env.REACT_APP_STS_TOKEN_ENDPOINT,
+  baseUrl: appConfig.asgardeoServicesUrl,
+  clientID: appConfig.asgardeoClientId,
+  signInRedirectURL: appConfig.asgardeoLoginCallbackUrl,
+  signOutRedirectURL: appConfig.asgardeoLogoutCallbackUrl,
+  scope: ['openid', 'profile', 'email'],
+  stsConfig: {
+    client_id: appConfig.choreoClientId,
+    orgHandle: appConfig.choreoOrganization,
+    scope: [
+      'apim:api_manage',
+      'apim:subscription_manage',
+      'apim:tier_manage',
+      'apim:admin',
+      'apim:publisher_settings',
+      'environments:view_prod',
+      'environments:view_dev',
+      'apim:api_generate_key',
+    ],
+  },
+  stsTokenEndpoint: appConfig.choreoTokenEndpoint,
+  resourceServerURLs: [appConfig.choreoApiBaseUrl],
 };

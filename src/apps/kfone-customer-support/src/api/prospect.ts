@@ -44,7 +44,7 @@ export const getCustomer360View = async (email: string) => {
     params: {
       email,
     },
-    url: `${appConfig.baseAPIEndpoint}/prospect-360-api/1.0.0/customer-360view`,
+    url: `${appConfig.choreoApiBaseUrl}/prospect-360-api/1.0.0/customer-360view`,
   };
 
   try {

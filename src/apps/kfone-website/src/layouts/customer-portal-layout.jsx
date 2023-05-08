@@ -30,7 +30,7 @@ import {
 } from 'react-icons/ai';
 import {FiExternalLink} from 'react-icons/fi';
 import {Loading} from '../components';
-import appConfig from '../config';
+import {appConfig} from '../configs';
 import avatar from '../assets/images/people/user.png';
 import clsx from 'clsx';
 
@@ -115,7 +115,7 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
           </button>
         </NavLinkBlock>
         <NavLinkBlock url="">
-          <a href={appConfig.myaccountURL} target="blank" className="flex w-full items-center">
+          <a href={appConfig.myaccountUrl} target="blank" className="flex w-full items-center">
             <AiOutlineUser size={28} className="mr-3" />
             <div className="flex w-full items-start">
               <h3 className="mr-1">My Account</h3>

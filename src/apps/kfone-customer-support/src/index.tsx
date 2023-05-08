@@ -18,13 +18,13 @@
 
 import React, {DetailedHTMLProps, FC, HTMLAttributes, ReactElement} from 'react';
 import ReactDOM from 'react-dom/client';
-import {App} from './app';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {AuthProvider} from '@asgardeo/auth-react';
 import {TokenExchangePlugin} from '@asgardeo/token-exchange-plugin';
 import {MdErrorOutline} from 'react-icons/md';
 import {authConfig} from './configs';
+import {App} from './app';
 
 /**
  * Root component props interface.

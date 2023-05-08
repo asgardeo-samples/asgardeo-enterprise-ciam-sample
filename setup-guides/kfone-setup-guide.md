@@ -101,14 +101,14 @@ NODE_ENV=development
 HTTPS=true
 PORT=3001
 REACT_APP_ASGARDEO_CLIENT_ID=&lt;Client ID of the Website application registered in Asgardeo>
-REACT_APP_ASGARDEO_BASE_URL=<https://api.asgardeo.io/t/>&lt;Your organization>
-REACT_APP_BASE_API_ENDPOINT=&lt;Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API>
+REACT_APP_ASGARDEO_SERVICES_URL=<https://api.asgardeo.io/t/>&lt;Your organization>
+REACT_APP_CHOREO_API_BASE_URL=&lt;Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API>
 REACT_APP_ASGARDEO_LOGIN_CALLBACK_URL=&lt;Post authentication authorized Redirect URL of the Customer Support application registered in Asgardeo>
 REACT_APP_ASGARDEO_LOGOUT_CALLBACK_URL=&lt;Post logout authorized Redirect URL of the Customer Support application registered in Asgardeo>
 REACT_APP_CHOREO_CLIENT_ID=&lt;Client ID of the application registered in Choreo>
 REACT_APP_CHOREO_ORGANIZATION=&lt;Your organization>
 REACT_APP_CHOREO_AUTH_TOKEN=&lt;Base64 encoded value of &lt;Choreo app client ID:Choreo app client secret>>
-REACT_APP_MY_ACCOUNT_URL=<https://myaccount.asgardeo.io/t/>&lt;Your organization>
+REACT_APP_ASGARDEO_MY_ACCOUNT_URL=<https://myaccount.asgardeo.io/t/>&lt;Your organization>
 ```
 
 |  **Variable**                          |   **Description**                                                                                      |    **Example**                                                        |
@@ -116,11 +116,11 @@ REACT_APP_MY_ACCOUNT_URL=<https://myaccount.asgardeo.io/t/>&lt;Your organization
 | REACT_APP_ASGARDEO_CLIENT_ID           | Client ID of the Website application registered in Asgardeo                                            | &lt;uuid>                                                |
 | REACT_APP_ASGARDEO_LOGIN_CALLBACK_URL  | Post authentication authorized Redirect URL of the Customer Support application registered in Asgardeo | https&#x3A;//localhost:3001/my-kfone                     |
 | REACT_APP_ASGARDEO_LOGOUT_CALLBACK_URL | Post logout authorized Redirect URL of the Customer Support application registered in Asgardeo         | https&#x3A;//localhost:3001                              |
-| REACT_APP_ASGARDEO_BASE_URL            | Asgardeo API URL including the organization                                                            | https&#x3A;//api.asgardeo.io/t/kfone                     |
+| REACT_APP_ASGARDEO_SERVICES_URL            | Asgardeo API URL including the organization                                                            | https&#x3A;//api.asgardeo.io/t/kfone                     |
 | REACT_APP_CHOREO_CLIENT_ID             | Client ID of the application registered in Choreo                                                      | &lt;uuid>                                                |
-| REACT_APP_BASE_API_ENDPOINT            | Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API            | https&#x3A;//prod.e1-us-east-azure.choreoapis.dev/hvwp   |
+| REACT_APP_CHOREO_API_BASE_URL            | Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API            | https&#x3A;//prod.e1-us-east-azure.choreoapis.dev/hvwp   |
 | REACT_APP_CHOREO_ORGANIZATION          | The Asgardeo organization name                                                                         | kfone                                                    |
-| REACT_APP_MY_ACCOUNT_URL               | URL of the My Account application of your Asgardeo organization                                        | https&#x3A;//myaccount.asgardeo.io/t/kfone               |
+| REACT_APP_ASGARDEO_MY_ACCOUNT_URL               | URL of the My Account application of your Asgardeo organization                                        | https&#x3A;//myaccount.asgardeo.io/t/kfone               |
 | REACT_APP_CHOREO_AUTH_TOKEN            | This is a basic authorization header made using the Choreo application client credentials.             | Base64 encode -> &lt;Choreo clientID:ChoreoClientSecret> |
 
 5. Run the application
@@ -160,23 +160,23 @@ NODE_ENV=development
 HTTPS=true
 PORT=3000
 REACT_APP_ASGARDEO_CLIENT_ID=&lt;Client ID of the Customer Support application registered in Asgardeo>
-REACT_APP_ASGARDEO_BASE_URL=<https://api.asgardeo.io/t/>&lt;Your organization>
-REACT_APP_ASGARDEO_CALLBACK_URL=&lt;Authorized Redirect URL of the Customer Support application registered in Asgardeo>
+REACT_APP_ASGARDEO_SERVICES_URL=<https://api.asgardeo.io/t/>&lt;Your organization>
+REACT_APP_ASGARDEO_LOGIN_CALLBACK_URL=&lt;Authorized Redirect URL of the Customer Support application registered in Asgardeo>
 REACT_APP_CHOREO_CLIENT_ID=&lt;Client ID of the application registered in Choreo>
-REACT_APP_BASE_API_ENDPOINT=&lt;Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API>
+REACT_APP_CHOREO_API_BASE_URL=&lt;Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API>
 REACT_APP_CHOREO_ORGANIZATION=&lt;Your organization>
-REACT_APP_STS_TOKEN_ENDPOINT=https&#x3A;//sts.choreo.dev/oauth2/token
+REACT_APP_CHOREO_TOKEN_ENDPOINT=https&#x3A;//sts.choreo.dev/oauth2/token
 ```
 
 | **Variable**                                | **Description**                                                                        |   **Example**                                                     |
 | ------------------------------- |--------------------------------------------------------------------------------------------| ------------------------------------------------------ |
 | REACT_APP_ASGARDEO_CLIENT_ID    | Client ID of the Customer Support application registered in Asgardeo                       | &lt;uuid>                                              |
-| REACT_APP_ASGARDEO_BASE_URL     | Asgardeo API URL including the organization                                                | https&#x3A;//api.asgardeo.io/t/kfone                   |
-| REACT_APP_ASGARDEO_CALLBACK_URL | Authorized Redirect URL of the Customer Support application registered in Asgardeo         | http&#x3A;//localhost:3000                             |
+| REACT_APP_ASGARDEO_SERVICES_URL     | Asgardeo API URL including the organization                                                | https&#x3A;//api.asgardeo.io/t/kfone                   |
+| REACT_APP_ASGARDEO_LOGIN_CALLBACK_URL | Authorized Redirect URL of the Customer Support application registered in Asgardeo         | http&#x3A;//localhost:3000                             |
 | REACT_APP_CHOREO_CLIENT_ID      | Client ID of the application registered in Choreo                                          | &lt;uuid>                                              |
-| REACT_APP_BASE_API_ENDPOINT     | Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API | https&#x3A;//prod.e1-us-east-azure.choreoapis.dev/hvwp |
+| REACT_APP_CHOREO_API_BASE_URL     | Base path of Choreo APIs. The portion of any API URL upto and excluding the name of the API | https&#x3A;//prod.e1-us-east-azure.choreoapis.dev/hvwp |
 | REACT_APP_CHOREO_ORGANIZATION   | The Asgardeo organization name                                                             | kfone                                                  |
-| REACT_APP_STS_TOKEN_ENDPOINT | Token endpoint in Choreo                                                                   | https&#x3A;//sts.choreo.dev/oauth2/token               |
+| REACT_APP_CHOREO_TOKEN_ENDPOINT | Token endpoint in Choreo                                                                   | https&#x3A;//sts.choreo.dev/oauth2/token               |
 
 
 

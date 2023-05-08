@@ -29,17 +29,8 @@ cd kfone-customer-support
 
 Get a copy of the `.env.example` file and rename it as .env. Then change the below values, as per the description provided in each .env variable.
 
-```json
-NODE_ENV=development
-HTTPS=true
-PORT=3000
-REACT_APP_ASGARDEO_CLIENT_ID=<CLIENT ID OF THE OIDC APPLICATION REGISTERED IN ASGARDEO>
-REACT_APP_ASGARDEO_BASE_URL=<BASE URL OF THE ASGARDEO API ENDPOINT (Eg. https://api.asgardeo.io/t/kfone)>
-REACT_APP_ASGARDEO_CALLBACK_URL=<CALLBACK URL (Eg. https://localhost:3000)>
-REACT_APP_CHOREO_CLIENT_ID=<CONSUMER ID OF THE APPLICATION REGISTERED IN CHOREO>
-REACT_APP_BASE_API_ENDPOINT=<BASE URL OF CHOREO HOSTED API>
-REACT_APP_CHOREO_ORGANIZATION=<ORGANIZATION OF CHOREO HOSTED API>
-REACT_APP_STS_TOKEN_ENDPOINT=<CHOREO TOKEN ENDPOINT>
+```bash
+cp .env.example .env
 ```
 
 ## Install Dependencies

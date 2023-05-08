@@ -56,7 +56,7 @@ export const recordUserInteractions = async (email, interactions) => {
       mobileSubscriptionVisits,
       tvSubscriptionVisits,
     },
-    url: `${appConfig.baseAPIEndpoint}/user-interactions-api/1.0.0/interactions`,
+    url: `${appConfig.choreoApiBaseUrl}/user-interactions-api/1.0.0/interactions`,
   };
 
   try {

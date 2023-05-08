@@ -48,7 +48,7 @@ export const initiatePhoneVerify = async (email, mobile) => {
       email,
       mobile,
     },
-    url: `${appConfig.baseAPIEndpoint}/account-verification-api-2/1.0.0/initiate`,
+    url: `${appConfig.choreoApiBaseUrl}/account-verification-api-2/1.0.0/initiate`,
   };
 
   try {
@@ -80,7 +80,7 @@ export const verifyPhone = async (email, mobile) => {
       email,
       mobile,
     },
-    url: `${appConfig.baseAPIEndpoint}/account-verification-api-2/1.0.0/verify`,
+    url: `${appConfig.choreoApiBaseUrl}/account-verification-api-2/1.0.0/verify`,
   };
 
   try {
