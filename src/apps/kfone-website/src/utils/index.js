@@ -16,6 +16,5 @@
  * under the License.
  */
 
-export * from './date-time-utils';
 export * from './dom-utils';
 export * from './validation-utils';

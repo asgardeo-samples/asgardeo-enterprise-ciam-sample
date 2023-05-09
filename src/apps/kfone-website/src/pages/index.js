@@ -16,7 +16,6 @@
  * under the License.
  */
 
-export * from './customer-portal';
 export * from './404-page';
 export * from './business-page';
 export * from './home-page';

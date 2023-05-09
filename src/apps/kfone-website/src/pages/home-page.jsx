@@ -22,6 +22,7 @@ import {useLocation, useHistory} from 'react-router-dom';
 import {BusinessPlansSection, DealsSection, EntertainmentSection} from '../components';
 import {HeroSection, QuickActionsSection, UnlimitedPlansSection} from '../components';
 import {GeneralLayout} from '../layouts';
+import {appConfig} from '../configs';
 
 export const HomePage = () => {
   const {state, signIn, getDecodedIDPIDToken, trySignInSilently} = useAuthContext();
@@ -48,7 +49,7 @@ export const HomePage = () => {
 
   const handleLogin = () => {
     if (state?.isAuthenticated) {
-      history.push('/my-kfone');
+      window.open(appConfig.selfcareAppUrl, '_self');
       return;
     }
 

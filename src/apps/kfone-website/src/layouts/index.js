@@ -16,7 +16,5 @@
  * under the License.
  */
 
-export * from './auth-layout';
-export * from './customer-portal-layout';
 export * from './error-layout';
 export * from './general-layout';
