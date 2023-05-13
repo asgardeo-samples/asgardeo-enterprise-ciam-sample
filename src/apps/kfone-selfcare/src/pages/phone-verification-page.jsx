@@ -84,8 +84,6 @@ export const PhoneVerificationPage = () => {
     setLoading(true);
     setTimeout(() => {
       if (!validateUserInput(otp)) {
-        console.log('user input error');
-        // TODO: handle error
         setLoading(false);
       } else if (otp !== sessionStorage.getItem('otp')) {
         setPhase('OTP_INVALID');
@@ -94,13 +92,12 @@ export const PhoneVerificationPage = () => {
       } else {
         verifyPhone(email, phone)
           .then(res => {
-            console.log(res);
             setLoading(false);
             sessionStorage.setItem('verified', true);
             history.push('/');
           })
-          .catch(error => {
-            console.error(error);
+          .catch(() => {
+            // TODO: Show a UI Error.
           });
       }
     }, 1000);
