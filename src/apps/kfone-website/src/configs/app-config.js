@@ -30,6 +30,5 @@ export const appConfig = {
   endpoints: {
     stsTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT,
   },
-  myaccountUrl: process.env.REACT_APP_ASGARDEO_MY_ACCOUNT_URL ?? '',
   selfcareAppUrl: process.env.REACT_APP_KFONE_SELFCARE_URL,
 };
