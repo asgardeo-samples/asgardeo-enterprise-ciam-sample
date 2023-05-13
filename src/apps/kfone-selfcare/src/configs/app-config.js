@@ -23,7 +23,6 @@ export const appConfig = {
   asgardeoLogoutCallbackUrl: process.env.REACT_APP_ASGARDEO_LOGOUT_CALLBACK_URL ?? '',
   choreoApiBaseUrl: process.env.REACT_APP_CHOREO_API_BASE_URL,
   choreoClientId: process.env.REACT_APP_CHOREO_CLIENT_ID ?? '',
-  choreoClientSecret: process.env.REACT_APP_CHOREO_CLIENT_SECRET,
   choreoOrganization: process.env.REACT_APP_CHOREO_ORGANIZATION ?? '',
   choreoTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT,
   endpoints: {

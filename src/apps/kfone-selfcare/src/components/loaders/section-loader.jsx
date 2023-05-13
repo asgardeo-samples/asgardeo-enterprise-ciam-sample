@@ -16,6 +16,11 @@
  * under the License.
  */
 
+/**
+ * Loading component for inner sections.
+ *
+ * @returns Section loader component.
+ */
 export const SectionLoader = () => {
   return (
     <div className="ml-[50%] mb-[10%]">

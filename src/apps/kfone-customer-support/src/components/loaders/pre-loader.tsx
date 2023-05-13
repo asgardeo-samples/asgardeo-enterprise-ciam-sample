@@ -18,6 +18,7 @@
 
 import clsx from 'clsx';
 import {DetailedHTMLProps, FC, HTMLAttributes, ReactElement} from 'react';
+import {GiCrossedAirFlows} from 'react-icons/gi';
 
 /**
  * Props for the Pre Loader component.
@@ -30,16 +31,15 @@ export type PreLoaderPros = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
  * @param params - The props for the component.
  * @returns The pre loader component.
  */
-export const PreLoader: FC<PreLoaderPros> = ({className}: PreLoaderPros): ReactElement => {
-  const classes: string = clsx('flex items-center justify-center min-h-screen p-5 bg-gray-100 min-w-screen', className);
+export const PreLoader: FC<PreLoaderPros> = ({className, ...rest}: PreLoaderPros): ReactElement => {
+  const classes: string = clsx('animate-pulse flex w-screen h-screen justify-center items-center', className);
 
   return (
-    <div className={classes}>
-      <div className="flex space-x-2 animate-pulse">
-        <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-      </div>
+    <div className={classes} {...rest}>
+      <h1 className="flex items-center text-primary text-2xl font-title">
+        <GiCrossedAirFlows size={30} />
+        <div className="ml-2">Kfone</div>
+      </h1>
     </div>
   );
 };

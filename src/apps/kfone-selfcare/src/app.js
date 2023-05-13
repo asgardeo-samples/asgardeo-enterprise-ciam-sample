@@ -16,20 +16,43 @@
  * under the License.
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {NotFoundErrorPage, PrivacyPolicyPage} from './pages';
-import {SecureRouteWithRedirect} from './components';
+import {NotFoundErrorPage} from './pages';
 import {ExplorePage, PhoneVerificationPage, MyPlanPage} from './pages';
+import {useAuthContext} from '@asgardeo/auth-react';
+import {PreLoader} from './components';
 
 export const App = () => {
+  const {state, trySignInSilently, signIn} = useAuthContext();
+  const {isAuthenticated, isLoading} = state;
+
+  useEffect(() => {
+    if (isAuthenticated || isLoading) {
+      return;
+    }
+
+    trySignInSilently()
+      .then(response => {
+        if (!response) {
+          signIn();
+        }
+      })
+      .catch(() => {
+        signIn();
+      });
+  }, [isAuthenticated, isLoading, signIn, trySignInSilently]);
+
+  if (isLoading || !isAuthenticated) {
+    return <PreLoader />;
+  }
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        <SecureRouteWithRedirect exact path="/" component={MyPlanPage} />
-        <SecureRouteWithRedirect exact path="/explore" component={ExplorePage} />
-        <SecureRouteWithRedirect exact path="/verify" component={PhoneVerificationPage} />
-        <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
+        <Route exact path="/" component={MyPlanPage} />
+        <Route exact path="/explore" component={ExplorePage} />
+        <Route exact path="/verify" component={PhoneVerificationPage} />
         <Route path="*" component={NotFoundErrorPage} />
       </Switch>
     </Router>

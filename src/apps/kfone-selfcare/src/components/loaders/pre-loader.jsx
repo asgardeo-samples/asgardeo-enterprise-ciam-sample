@@ -20,7 +20,13 @@ import React from 'react';
 import {GiCrossedAirFlows} from 'react-icons/gi';
 import clsx from 'clsx';
 
-export const Loading = ({className, ...rest}) => {
+/**
+ * A pre loader component for the app.
+ *
+ * @param props - Props injected to the component.
+ * @returns Pre Loader component.
+ */
+export const PreLoader = ({className, ...rest}) => {
   const classes = clsx('animate-pulse flex w-screen h-screen justify-center items-center', className);
 
   return (

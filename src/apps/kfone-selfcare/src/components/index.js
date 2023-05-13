@@ -16,7 +16,6 @@
  * under the License.
  */
 
-export * from './auth';
 export * from './buttons';
 export * from './loaders';
 export * from './carousel';
