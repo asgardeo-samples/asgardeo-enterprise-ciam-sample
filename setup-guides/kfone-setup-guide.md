@@ -112,7 +112,6 @@ For the B2C use cases, the following list of APIs and Webhooks needs to be deplo
 | REACT_APP_CHOREO_PUBLIC_APP_CLIENT_SECRET             | Client secret of the public application registered in Choreo                                                      | `<uuid>`                                                |
 | REACT_APP_CHOREO_ORGANIZATION          | The Asgardeo organization name                                                                         | kfone                                                    |
 | REACT_APP_CHOREO_TOKEN_ENDPOINT          | Choreo STS token endpoint.                                                                         | [https://sts.choreo.dev/oauth2/token](https://sts.choreo.dev/oauth2/token)                                                    |
-| REACT_APP_ASGARDEO_MY_ACCOUNT_URL               | URL of the My Account application of your Asgardeo organization                                        | [https://myaccount.asgardeo.io/t/kfone](https://myaccount.asgardeo.io/t/kfone)               |
 | REACT_APP_KFONE_SELFCARE_URL               | URL of the The URL of the Kfone Selfcare application.                                        | [https://localhost:3002/my-kfone](https://localhost:3002/my-kfone)               |
 
 3. Install the necessary libraries and dependencies
