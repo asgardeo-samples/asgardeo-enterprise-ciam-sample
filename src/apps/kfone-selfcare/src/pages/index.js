@@ -20,4 +20,3 @@ export * from './404-page';
 export * from './explore-page';
 export * from './my-plan-page';
 export * from './phone-verification-page';
-export * from './privacy-policy-page';

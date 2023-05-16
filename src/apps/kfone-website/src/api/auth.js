@@ -38,7 +38,7 @@ export const getAccessToken = async () => {
   const requestConfig = {
     attachToken: false,
     headers: {
-      Authorization: `Basic ${btoa(`${appConfig.choreoClientId}:${appConfig.choreoClientSecret}`)}`,
+      Authorization: `Basic ${btoa(`${appConfig.choreoPublicAppClientId}:${appConfig.choreoPublicAppClientSecret}`)}`,
       'Content-Type': 'application/scim+json',
     },
     method: HttpMethod.POST,

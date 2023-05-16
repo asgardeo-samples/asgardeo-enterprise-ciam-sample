@@ -16,5 +16,5 @@
  * under the License.
  */
 
-export * from './loading';
+export * from './pre-loader';
 export * from './section-loader';

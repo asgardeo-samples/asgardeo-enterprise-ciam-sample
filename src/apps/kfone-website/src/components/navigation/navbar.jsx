@@ -25,18 +25,20 @@ import {RoundedIconButton} from '..';
 import clsx from 'clsx';
 
 export const Navbar = ({className, handleLogin, state, ...rest}) => {
-  const classes = clsx('flex justify-between items-center h-20 px-6 max-w-[1440px] mx-auto', className);
+  const {isAuthenticated} = state;
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [buttonText, setButtonText] = useState('Sign in');
 
+  const classes = clsx('flex justify-between items-center h-20 px-6 max-w-[1440px] mx-auto', className);
+
   useEffect(() => {
-    if (!state?.isAuthenticated) {
+    if (!isAuthenticated) {
       return;
     }
 
     setButtonText('My Kfone');
-  }, [state.isAuthenticated]);
+  }, [isAuthenticated]);
 
   const handleNavMenuButton = () => {
     setMobileNavOpen(!mobileNavOpen);

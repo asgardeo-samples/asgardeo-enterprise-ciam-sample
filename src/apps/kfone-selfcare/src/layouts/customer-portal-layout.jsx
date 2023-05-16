@@ -29,7 +29,6 @@ import {
   AiOutlineCreditCard,
 } from 'react-icons/ai';
 import {FiExternalLink} from 'react-icons/fi';
-import {Loading} from '../components';
 import {appConfig} from '../configs';
 import avatar from '../assets/images/people/user.png';
 import clsx from 'clsx';
@@ -40,7 +39,7 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
   const location = useLocation();
   const history = useHistory();
   const {state, signOut} = useAuthContext();
-  const {isAuthenticated, isLoading} = state;
+  const {email} = state;
 
   const handleLogout = () => {
     sessionStorage.removeItem('verified');
@@ -63,10 +62,6 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
       </div>
     );
   };
-
-  if (isLoading || !isAuthenticated) {
-    return <Loading />;
-  }
 
   return (
     <div className={classes} {...rest}>
@@ -136,7 +131,7 @@ export const CustomerPortalLayout = ({children, className, ...rest}) => {
             <img src={avatar} alt="user avatar" height={60} />
           </div>
           <div className="px-4 py-2 bg-light rounded-lg shadow">
-            <h2 className="text-xl font-light text-primary">{state?.email}</h2>
+            <h2 className="text-xl font-light text-primary">{email}</h2>
           </div>
         </div>
         {children}

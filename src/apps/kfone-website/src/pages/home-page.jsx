@@ -16,40 +16,19 @@
  * under the License.
  */
 
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import {useAuthContext} from '@asgardeo/auth-react';
-import {useLocation, useHistory} from 'react-router-dom';
 import {BusinessPlansSection, DealsSection, EntertainmentSection} from '../components';
 import {HeroSection, QuickActionsSection, UnlimitedPlansSection} from '../components';
 import {GeneralLayout} from '../layouts';
 import {appConfig} from '../configs';
 
 export const HomePage = () => {
-  const {state, signIn, getDecodedIDPIDToken, trySignInSilently} = useAuthContext();
-  const query = new URLSearchParams(useLocation().search);
-  const reRenderCheckRef = useRef(false);
-  const history = useHistory();
+  const {state, trySignInSilently, signIn} = useAuthContext();
+  const {isAuthenticated, isLoading} = state;
 
   useEffect(() => {
-    reRenderCheckRef.current = true;
-
-    (async () => {
-      try {
-        const now = Math.floor(Date.now() / 1000);
-        const decodedIDtoken = await getDecodedIDPIDToken();
-        const expiration = decodedIDtoken?.exp;
-        if (now < expiration && !query.get('code')) {
-          await signIn();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
-
-  const handleLogin = () => {
-    if (state?.isAuthenticated) {
-      window.open(appConfig.selfcareAppUrl, '_self');
+    if (isAuthenticated || isLoading) {
       return;
     }
 
@@ -62,6 +41,10 @@ export const HomePage = () => {
       .catch(() => {
         signIn();
       });
+  }, [isAuthenticated, isLoading, signIn, trySignInSilently]);
+
+  const handleLogin = () => {
+    window.open(appConfig.selfcareAppUrl, '_self');
   };
 
   return (

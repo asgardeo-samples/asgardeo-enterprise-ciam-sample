@@ -36,9 +36,10 @@ export type AppProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDiv
  */
 export const App: FC<AppProps> = (): ReactElement => {
   const {state, trySignInSilently, signIn} = useAuthContext();
+  const {isAuthenticated, isLoading} = state;
 
   useEffect(() => {
-    if (state.isAuthenticated || state.isLoading) {
+    if (isAuthenticated || isLoading) {
       return;
     }
 
@@ -51,7 +52,11 @@ export const App: FC<AppProps> = (): ReactElement => {
       .catch(() => {
         signIn();
       });
-  }, [state.isAuthenticated, state.isLoading]);
+  }, [isAuthenticated, isLoading, signIn, trySignInSilently]);
 
-  return <>{state.isAuthenticated && !state.isLoading ? <RouterProvider router={router} /> : <PreLoader />}</>;
+  if (isLoading || !isAuthenticated) {
+    return <PreLoader />;
+  }
+
+  return <RouterProvider router={router} />;
 };

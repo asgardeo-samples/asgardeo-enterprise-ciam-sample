@@ -39,11 +39,13 @@ export const WebinarRegistrationPage = () => {
 
     if (params.has('ref')) {
       ref = params.get('ref');
+
       try {
         decodedValue = atob(ref);
-      } catch (error) {
-        console.log(error.message);
+      } catch (e) {
+        // TODO: Show a UI Error.
       }
+
       if (validateEmail(decodedValue)) {
         setEmail(decodedValue);
       }

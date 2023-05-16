@@ -34,7 +34,6 @@ import reportWebVitals from './reportWebVitals';
 export const Root = () => {
   if (
     !(
-      appConfig.myaccountUrl &&
       authConfig.baseUrl &&
       authConfig.clientID &&
       authConfig.resourceServerURLs &&

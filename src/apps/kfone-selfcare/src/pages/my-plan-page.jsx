@@ -70,7 +70,6 @@ export const MyPlanPage = () => {
         sessionStorage.setItem('verified', true);
       }
 
-      console.log(derivedState);
       setDecodedIDTokenPayload(decodedIDToken);
     })();
   }, [state.isAuthenticated]);

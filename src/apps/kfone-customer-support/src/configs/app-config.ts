@@ -46,10 +46,6 @@ export interface AppConfig {
    */
   choreoClientId: string;
   /**
-   * The secret of your Choreo application.
-   */
-  choreoClientSecret: string;
-  /**
    * The organization of the Choreo-hosted API.
    */
   choreoOrganization: string;
@@ -75,7 +71,6 @@ export const appConfig: AppConfig = {
   asgardeoLogoutCallbackUrl: process.env.REACT_APP_ASGARDEO_LOGOUT_CALLBACK_URL ?? '',
   choreoApiBaseUrl: process.env.REACT_APP_CHOREO_API_BASE_URL as string,
   choreoClientId: process.env.REACT_APP_CHOREO_CLIENT_ID ?? '',
-  choreoClientSecret: process.env.REACT_APP_CHOREO_CLIENT_SECRET as string,
   choreoOrganization: process.env.REACT_APP_CHOREO_ORGANIZATION ?? '',
   choreoTokenEndpoint: process.env.REACT_APP_CHOREO_TOKEN_ENDPOINT as string,
   endpoints: {
