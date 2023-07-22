@@ -18,7 +18,7 @@ git clone https://github.com/asgardeo-samples/asgardeo-enterprise-ciam-sample.gi
 
     |       **Application Name**                 | **Authorized Redirect URLs**                           |
     | ---------------------- |--------------------------------------------------------|
-    | Kfone Customer Support | [https//localhost:3000]([https//localhost:3000) |
+    | Kfone Customer Support | [https://localhost:3000]([https//localhost:3000) |
     | Kfone Website          | [https://localhost:3001](https://localhost:3001) |
     | Kfone Selfcare          | [https://localhost:3002/my-kfone](https://localhost:3002/my-kfone) |
 
